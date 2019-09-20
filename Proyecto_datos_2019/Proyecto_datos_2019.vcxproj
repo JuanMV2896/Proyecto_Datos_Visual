@@ -129,6 +129,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Coleccion.h" />
+    <ClInclude Include="Integer.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="ObjetoBase.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Utiles.h" />

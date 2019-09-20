@@ -7,12 +7,12 @@ using namespace std;
 #define MAX_ELEMENTS 20
 
 template <class T>
-class stack {
+class Stack {
 public:
-	stack(int = MAX_ELEMENTS);
-	stack(const stack<T>&);
-	virtual ~stack();
-	stack<T>& operator=(const stack<T>&);
+	Stack(int = MAX_ELEMENTS);
+	Stack(const Stack<T>&);
+	virtual ~Stack();
+	Stack<T>& operator=(const Stack<T>&);
 
 	virtual int is_empty() const;
 	virtual int max_size() const;
@@ -31,25 +31,25 @@ private:
 };
 
 template <class T>
-stack<T>::stack(int n) : _n(n), _v(new T[n]), _k(0) {
+Stack<T>::Stack(int n) : _n(n), _v(new T[n]), _k(0) {
 }
 
 template <class T>
-stack<T>::stack(const stack<T>& s) : _n(s._n), _v(new T[s._n]), _k(0) {
+Stack<T>::Stack(const Stack<T>& s) : _n(s._n), _v(new T[s._n]), _k(0) {
 	for (int i = 0; i < s._k; i++) {
 		_v[_k++] = s._v[i];
 	}
 }
 
 template <class T>
-stack<T>::~stack() {
+Stack<T>::~stack() {
 	if (_v != NULL) {
 		delete _v;
 	}
 }
 
 template <class T>
-stack<T>& stack<T>::operator=(const stack<T>& s) {
+Stack<T>& Stack<T>::operator=(const Stack<T>& s) {
 	if (this != &s) {
 		if (_v != NULL) {
 			delete _v;
@@ -67,22 +67,22 @@ stack<T>& stack<T>::operator=(const stack<T>& s) {
 }
 
 template <class T>
-int stack<T>::is_empty() const {
+int Stack<T>::is_empty() const {
 	return count() == 0;
 }
 
 template <class T>
-int stack<T>::max_size() const {
+int Stack<T>::max_size() const {
 	return _n;
 }
 
 template <class T>
-int stack<T>::count() const {
+int Stack<T>::count() const {
 	return _k;
 }
 
 template <class T>
-T stack<T>::top() const {
+T Stack<T>::top() const {
 	if (!is_empty()) {
 		return _v[_k - 1];
 	}
@@ -92,7 +92,7 @@ T stack<T>::top() const {
 }
 
 template <class T>
-void stack<T>::push(T x) {
+void Stack<T>::push(T x) {
 	if (_k < _n) {
 		_v[_k++] = x;
 	}
@@ -102,7 +102,7 @@ void stack<T>::push(T x) {
 }
 
 template <class T>
-T stack<T>::pop() {
+T Stack<T>::pop() {
 	if (!is_empty()) {
 		return _v[--_k];
 	}
@@ -112,7 +112,7 @@ T stack<T>::pop() {
 }
 
 template <class T>
-string stack<T>::toString() const {
+string Stack<T>::toString() const {
 	stringstream r;
 	r << "[";
 	for (int i = 0; i < _k; i++) {
