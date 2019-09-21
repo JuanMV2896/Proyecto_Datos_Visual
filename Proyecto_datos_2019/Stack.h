@@ -42,7 +42,7 @@ Stack<T>::Stack(const Stack<T>& s) : _n(s._n), _v(new T[s._n]), _k(0) {
 }
 
 template <class T>
-Stack<T>::~stack() {
+Stack<T>::~Stack() {
 	if (_v != NULL) {
 		delete _v;
 	}

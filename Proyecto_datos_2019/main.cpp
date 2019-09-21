@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 	string p;
-	stack<int>* s0 = new stack<int>();
+	Stack<int>* s0 = new Stack<int>();
 	s0->push(15);
 	s0->push(34);
 	s0->push(7);
