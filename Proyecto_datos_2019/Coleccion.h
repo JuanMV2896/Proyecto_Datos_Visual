@@ -1,21 +1,21 @@
 #pragma once
-#include "objetoBase.h"
+#include "ObjetoBase.h"
 
 using std::string;
-template <class T> class coleccion;
+template <class T> class Coleccion;
 template <class T> class iterador;
 
 template <class T>
-class coleccion : public objetoBase {
+class Coleccion : public ObjetoBase {
 public:
-	coleccion();
-	virtual ~coleccion();
+	Coleccion();
+	virtual ~Coleccion();
 
 	virtual bool vacia() const;
 	virtual int numElementos() const = 0;
 
 	virtual void agregar(T*) = 0;
-	virtual void agregar(const coleccion<T>&);
+	virtual void agregar(const Coleccion<T>&);
 	virtual void insertar(T*, int = -1) = 0;
 
 	virtual T* extraer(int) = 0;
@@ -24,7 +24,7 @@ public:
 
 	virtual T* recuperar(int) const = 0;
 
-	virtual coleccion<T>& operator+=(const coleccion<T>&);
+	virtual Coleccion<T>& operator+=(const Coleccion<T>&);
 
 	virtual iterador<T>* obtenerIterador() const = 0;
 	virtual string toString() const;
@@ -41,20 +41,20 @@ public:
 };
 
 template <class T>
-coleccion<T>::coleccion() {
+Coleccion<T>::Coleccion() {
 }
 
 template <class T>
-coleccion<T>::~coleccion() {
+Coleccion<T>::~Coleccion() {
 }
 
 template <class T>
-bool coleccion<T>::vacia() const {
+bool Coleccion<T>::vacia() const {
 	return (numElementos() == 0);
 }
 
 template <class T>
-void coleccion<T>::agregar(const coleccion<T>& otra) {
+void Coleccion<T>::agregar(const Coleccion<T>& otra) {
 	iterador<T>* i = otra.obtenerIterador();
 	while (i->masElementos()) {
 		T* e = i->proximoElemento();
@@ -64,7 +64,7 @@ void coleccion<T>::agregar(const coleccion<T>& otra) {
 }
 
 template <class T>
-void coleccion<T>::extraerTodos(bool eliminar) {
+void Coleccion<T>::extraerTodos(bool eliminar) {
 	while (!vacia()) {
 		T* e = extraerUltimo();
 		if (eliminar) {
@@ -74,20 +74,20 @@ void coleccion<T>::extraerTodos(bool eliminar) {
 }
 
 template <class T>
-coleccion<T>& coleccion<T>::operator+=(const coleccion<T>& otra) {
+Coleccion<T>& Coleccion<T>::operator+=(const Coleccion<T>& otra) {
 	agregar(otra);
 	return *this;
 }
 
 template <class T>
-string coleccion<T>::toString() const {
+string Coleccion<T>::toString() const {
 	return toString(true);
 }
 
 template <class T>
-string coleccion<T>::toString(bool f) const {
+string Coleccion<T>::toString(bool f) const {
 	std::stringstream r;
-	r << "coleccion: [";
+	r << "Coleccion: [";
 
 	bool primerElemento = true;
 	iterador<T>* i = obtenerIterador();
