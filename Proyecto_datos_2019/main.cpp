@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Stack.h"
+#include "Integer.h"
 
 using namespace std;
 
@@ -15,5 +15,8 @@ int main() {
 	s0->push(23);
 	s0->push(12);
 	cout << "s0: " << s0->toString() << endl;
+	s0->~Stack();
+	Integer<int>* _myInteger = new Integer<int>();
+	_myInteger->~Integer();
 	return 0;
 }

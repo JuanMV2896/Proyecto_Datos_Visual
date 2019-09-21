@@ -6,7 +6,7 @@ template <class T> class Lista;
 template <class T> class nodo;
 
 template <class T>
-class Lista : public coleccion<T> {
+class Lista : public Coleccion<T> {
 public:
 	Lista();
 	Lista(const Lista<T>&);
@@ -32,7 +32,7 @@ private:
 };
 
 template <class T>
-class nodo : public objetoBase {
+class nodo : public ObjetoBase {
 public:
 	nodo(T*, nodo<T>* = NULL);
 	virtual ~nodo();
@@ -64,12 +64,12 @@ private:
 
 template <class T>
 Lista<T>::Lista()
-	: coleccion<T>(), _n(0), _primero(NULL), _ultimo(NULL) {
+	: Coleccion<T>(), _n(0), _primero(NULL), _ultimo(NULL) {
 }
 
 template <class T>
 Lista<T>::Lista(const Lista<T>& otra)
-	: coleccion<T>(), _n(0), _primero(NULL), _ultimo(NULL) {
+	: Coleccion<T>(), _n(0), _primero(NULL), _ultimo(NULL) {
 	nodo<T>* cursor = otra._primero;
 	while (cursor != NULL) {
 		nodo<T>* nuevo = new nodo<T>(cursor->obtenerInfo());
