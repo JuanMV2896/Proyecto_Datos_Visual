@@ -97,7 +97,7 @@ void Stack<T>::push(T x) {
 		_v[_k++] = x;
 	}
 	else {
-		throw exception();
+		throw exception(_fullStackException_);
 	}
 }
 
@@ -107,7 +107,7 @@ T Stack<T>::pop() {
 		return _v[--_k];
 	}
 	else {
-		throw exception();
+		throw exception(_nullPointerException_);
 	}
 }
 

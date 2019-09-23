@@ -17,6 +17,8 @@ int main() {
 	cout << "s0: " << s0->toString() << endl;
 	s0->~Stack();
 	Integer<int>* _myInteger = new Integer<int>();
-	_myInteger->~Integer();
+	_myInteger->getStack()->push(15);
+	cout << _myInteger->toString() << endl;
+	delete _myInteger;
 	return 0;
 }

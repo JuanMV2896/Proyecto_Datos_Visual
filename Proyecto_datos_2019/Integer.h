@@ -3,6 +3,7 @@
 #include"Stack.h"
 #include"ObjetoBase.h"
 
+
 #define ZERO 0
 #define ONE 1
 
@@ -48,7 +49,7 @@ private:
 };
 
 template<class T>
-inline Integer<T>::Integer():_lista(nullptr),_stack(nullptr)
+inline Integer<T>::Integer():_lista(new Lista<T>()),_stack(new Stack<T>())
 {
 }
 
@@ -73,10 +74,8 @@ inline Integer<T>::Integer(const Integer& orig)
 template<class T>
 inline Integer<T>::~Integer()
 {
-	if (_stack)
-		_stack->~Stack;
-	if (_lista)
-		_lista->~Lista;
+	delete _stack;
+	delete _lista;
 }
 
 template<class T>
@@ -106,9 +105,9 @@ inline Stack<T>* Integer<T>::getStack()
 template<class T>
 inline string Integer<T>::toString() const
 {
-	stringstream s;
-	s << "El objeto declarado tiene: " << endl;
-	s << _stack->count() << " elementos en el stack.\n";
-	s << _lista->numElementos() << " elementos en la lista.\n";
+	stringstream s;	
+		s << "El objeto declarado tiene: " << endl;
+		s << _stack->count() << " elementos en el stack.\n";
+		s << _lista->numElementos() << " elementos en la lista.\n";
 	return s.str();
 }

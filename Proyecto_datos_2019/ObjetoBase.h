@@ -3,6 +3,10 @@
 #include <sstream>
 #include <exception>
 using namespace std;
+//Definicion de excepciones
+#define _nullPointerException_ "nullPointerException"
+#define _fullStackException_ "fullStackException"
+
 
 class ObjetoBase {
 public:
