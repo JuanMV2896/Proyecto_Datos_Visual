@@ -6,7 +6,7 @@ using namespace std;
 //Definicion de excepciones
 #define _nullPointerException_ "nullPointerException"
 #define _fullStackException_ "fullStackException"
-
+#define _canNotOverrideException_ "canNotOverride"
 
 class ObjetoBase {
 public:

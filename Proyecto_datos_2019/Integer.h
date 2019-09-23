@@ -74,8 +74,9 @@ inline Integer<T>::Integer(const Integer& orig)
 template<class T>
 inline Integer<T>::~Integer()
 {
-	delete _stack;
-	delete _lista;
+	if(!_lista->vacia())
+		delete _lista;
+	delete _stack;	
 }
 
 template<class T>
@@ -93,7 +94,10 @@ inline Lista<T>* Integer<T>::getLista()
 template<class T>
 inline void Integer<T>::setStack(Stack<T>* stack)
 {
-	_stack = stack;
+	if (_stack->is_empty())
+		_stack = stack;
+	else
+		throw exception(_canNotOverrideException_);
 }
 
 template<class T>
