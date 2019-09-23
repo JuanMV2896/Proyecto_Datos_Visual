@@ -9,7 +9,7 @@
 
 using namespace std;
 template<class T>
-class Integer : public ObjetoBase {
+class Integer : public ObjetoBase{
 public:
 	Integer();
 	Integer(Lista<T>*, Stack<T>*);
