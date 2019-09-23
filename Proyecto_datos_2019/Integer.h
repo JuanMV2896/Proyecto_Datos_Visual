@@ -38,7 +38,7 @@ public:
 	//    virtual int* parse(string);
 	virtual void setLista(Lista<T>*);
 	virtual Lista<T>* getLista();
-	virtual void setsatck(Stack<T>*);
+	virtual void setStack(Stack<T>*);
 	virtual Stack<T>* getStack();
 	virtual string toString()const;
 
@@ -53,13 +53,21 @@ inline Integer<T>::Integer():_lista(nullptr),_stack(nullptr)
 }
 
 template<class T>
-inline Integer<T>::Integer(Lista<T>*, Stack<T>*)
+inline Integer<T>::Integer(Lista<T>* x, Stack<T>* y)
 {
+	_lista = x;
+	_stack = y;
 }
 
 template<class T>
 inline Integer<T>::Integer(const Integer& orig)
 {
+	//Copiando Stack, como el stack ya tiene implementado el operador
+	//de asignacion entonces se realiza directamente.
+	*_stack = *orig.getStack();
+	//Copiando Lista, como la lista ya tiene implementado el operador 
+	//de asignacion entonces se realiza directamente.
+	*_lista = *orig.getLista();
 }
 
 template<class T>
@@ -72,29 +80,35 @@ inline Integer<T>::~Integer()
 }
 
 template<class T>
-inline void Integer<T>::setLista(Lista<T>*)
+inline void Integer<T>::setLista(Lista<T>* lista)
 {
+	_lista = lista;
 }
 
 template<class T>
 inline Lista<T>* Integer<T>::getLista()
 {
-	return NULL;
+	return _lista;
 }
 
 template<class T>
-inline void Integer<T>::setsatck(Stack<T>*)
+inline void Integer<T>::setStack(Stack<T>* stack)
 {
+	_stack = stack;
 }
 
 template<class T>
 inline Stack<T>* Integer<T>::getStack()
 {
-	return NULL;
+	return _stack;
 }
 
 template<class T>
 inline string Integer<T>::toString() const
 {
-	return string();
+	stringstream s;
+	s << "El objeto declarado tiene: " << endl;
+	s << _stack->count() << " elementos en el stack.\n";
+	s << _lista->numElementos() << " elementos en la lista.\n";
+	return s.str();
 }
