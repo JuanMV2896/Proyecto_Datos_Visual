@@ -12,19 +12,13 @@ public:
 	Lista(const Lista<T>&);
 	virtual ~Lista();
 	Lista<T>& operator=(const Lista<T>&);
-
 	virtual int numElementos() const;
-
 	virtual void agregar(T*);
 	virtual void insertar(T*, int = -1);
-
 	virtual T* extraer(int);
 	virtual T* extraerUltimo();
-
 	virtual T* recuperar(int) const;
-
 	virtual iterador<T>* obtenerIterador() const;
-
 private:
 	int _n;
 	nodo<T>* _primero;
@@ -36,13 +30,10 @@ class nodo : public ObjetoBase {
 public:
 	nodo(T*, nodo<T>* = NULL);
 	virtual ~nodo();
-
 	virtual T* obtenerInfo() const;
 	virtual nodo<T>* obtenerSiguiente() const;
 	virtual void establecerSiguiente(nodo<T>* = NULL);
-
 	virtual std::string toString() const;
-
 private:
 	T* _info;
 	nodo<T>* _siguiente;
@@ -52,11 +43,9 @@ template <class T>
 class iteradorLista : public iterador<T> {
 public:
 	iteradorLista(nodo<T>*);
-
 	virtual void reiniciar();
 	virtual bool masElementos() const;
 	virtual T* proximoElemento();
-
 private:
 	nodo<T>* _primero;
 	nodo<T>* _actual;

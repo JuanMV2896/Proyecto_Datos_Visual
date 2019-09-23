@@ -3,7 +3,6 @@
 #include"Stack.h"
 #include"ObjetoBase.h"
 
-
 #define ZERO 0
 #define ONE 1
 
@@ -15,6 +14,7 @@ public:
 	Integer(Lista<T>*, Stack<T>*);
 	Integer(const Integer<T>& orig);
 	virtual ~Integer();
+	virtual Integer<T>& operator=(const Integer<T>&);
 	//    virtual Integer<T>* sumar(Integer<T>*);
 	//    virtual Integer<T>* restar(Integer<T>*);
 	//    virtual Integer<T>* division(Integer<T>*);
@@ -24,7 +24,7 @@ public:
 	//    virtual Integer<T>& operator/(const Integer<T>&);
 	//    virtual Integer<T>& operator+(const Integer<T>&);
 	//    virtual Integer<T>& operator-(const Integer<T>&);
-	virtual Integer<T>& operator=(const Integer<T>&);
+
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
 	//    virtual Integer<T>& operator*=(const Integer<T>&);
@@ -44,6 +44,7 @@ public:
 	virtual string toString()const;
 
 private:
+	//Lista<Stack<T>>* _lista;
 	Lista<T>* _lista;
 	Stack<T>* _stack;
 };
