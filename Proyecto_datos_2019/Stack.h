@@ -87,7 +87,7 @@ T Stack<T>::top() const {
 		return _v[_k - 1];
 	}
 	else {
-		throw exception();
+		throw exception(_nullPointerException_);
 	}
 }
 

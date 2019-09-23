@@ -24,7 +24,7 @@ public:
 	//    virtual Integer<T>& operator/(const Integer<T>&);
 	//    virtual Integer<T>& operator+(const Integer<T>&);
 	//    virtual Integer<T>& operator-(const Integer<T>&);
-	//    virtual Integer<T>& operator=(const Integer<T>&);
+	virtual Integer<T>& operator=(const Integer<T>&);
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
 	//    virtual Integer<T>& operator*=(const Integer<T>&);
@@ -77,6 +77,20 @@ inline Integer<T>::~Integer()
 	if(!_lista->vacia())
 		delete _lista;
 	delete _stack;	
+}
+
+template<class T>
+inline Integer<T>& Integer<T>::operator=(const Integer<T>& s)
+{
+	if (this != &s) {
+		if (_lista != nullptr && _stack!= nullptr) {
+			delete _lista;
+			delete _stack;
+		}
+		_stack = s._stack;
+		_lista = s._lista;
+	}
+	return *this;
 }
 
 template<class T>

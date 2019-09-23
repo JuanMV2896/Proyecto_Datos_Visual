@@ -17,11 +17,14 @@ int main() {
 	cout << "s0: " << s0->toString() << endl;
 	s0->~Stack();
 	Integer<int>* _myInteger = new Integer<int>();
+	Integer<int>* _mySecondInteger = nullptr;
 	_myInteger->setStack(s0);
 	_myInteger->getStack()->push(15);	
 	cout << _myInteger->toString() << endl;
+	_mySecondInteger = _myInteger;
 	_myInteger->getStack()->pop();
 	cout << _myInteger->toString() << endl;
+	cout << _mySecondInteger->toString() << endl;
 	delete _myInteger;
 	return 0;
 }
