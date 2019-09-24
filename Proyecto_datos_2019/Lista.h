@@ -12,6 +12,7 @@ public:
 	Lista(const Lista<T>&);
 	virtual ~Lista();
 	Lista<T>& operator=(const Lista<T>&);
+	bool operator==(const Lista<T>&);
 	virtual int numElementos() const;
 	virtual void agregar(T*);
 	virtual void insertar(T*, int = -1);
@@ -102,6 +103,19 @@ Lista<T>& Lista<T>::operator=(const Lista<T>& otra) {
 		}
 	}
 	return *this;
+}
+
+template<class T>
+inline bool Lista<T>::operator==(const Lista<T>& objeto)
+{
+	if (objeto.numElementos() == this->numElementos()) {
+		for (int i = 0; i < numElementos(); i++) {
+			if (objeto.extraer(i) != extraer(i))
+				return false;
+		}
+		return true;
+	}
+	return false;
 }
 
 template <class T>
