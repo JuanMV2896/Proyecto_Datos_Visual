@@ -7,13 +7,13 @@ using namespace std;
 #define MAX_ELEMENTS 20
 
 template <class T>
-class Stack {
+class Stack: public ObjetoBase {
 public:
 	Stack(int = MAX_ELEMENTS);
 	Stack(const Stack<T>&);
 	virtual ~Stack();
 	Stack<T>& operator=(const Stack<T>&);
-
+	
 	virtual int is_empty() const;
 	virtual int max_size() const;
 	virtual int count() const;
@@ -29,6 +29,11 @@ private:
 	T* _v;
 	int _k;
 };
+template <class T>
+std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
+	salida << obj.toString();
+	return salida;
+}
 
 template <class T>
 Stack<T>::Stack(int n) : _n(n), _v(new T[n]), _k(0) {
@@ -112,7 +117,7 @@ T Stack<T>::pop() {
 }
 
 template <class T>
-string Stack<T>::toString() const {
+string Stack<T>::toString() const{
 	stringstream r;
 	r << "[";
 	for (int i = 0; i < _k; i++) {
