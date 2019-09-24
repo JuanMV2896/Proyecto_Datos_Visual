@@ -22,7 +22,7 @@ public:
 	//    virtual Integer<T>& operator==(const Integer<T>&);
 	//    virtual Integer<T>& operator*(const Integer<T>&);
 	//    virtual Integer<T>& operator/(const Integer<T>&);
-  //  virtual Integer<T>& operator+(const Integer<T>&);
+    virtual Integer<Stack<T> >& operator+(const Integer<Stack<T> >&);
 	//    virtual Integer<T>& operator-(const Integer<T>&);
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
@@ -98,10 +98,16 @@ inline Lista<Stack<T>>* Integer<T>::getLista()
 	return _lista;
 }
 
-//template<class T>
-//inline Integer<T>& Integer<T>::operator+(const Integer<T>&) {
-//	return NULL;
-//}
+template<class T>
+inline Integer<Stack<T>>& Integer<T>::operator+(const Integer<Stack<T>>& x) {
+	int accarreo = 0;
+	int num1 = 0;
+	int num2 = 0;
+	//while (this->getLista()->recuperar(0)!=NULL && !this->getLista()->recuperar(0)->is_empty()) {
+
+	//}
+	return *this;
+}
 
 template<class T>
 inline string Integer<T>::toString() const
