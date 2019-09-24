@@ -16,6 +16,9 @@ int main() {
 	s0->push(12);
 	cout << "s0: " << s0->toString() << endl;
 	s0->~Stack();
+	/*
+	Integer<double>* _myInteger = new Integer<double>(73187498132748917);/
+	*/
 	Integer<int>* _myInteger = new Integer<int>();
 	Integer<int>* _mySecondInteger = nullptr;
 	_myInteger->setStack(s0);
