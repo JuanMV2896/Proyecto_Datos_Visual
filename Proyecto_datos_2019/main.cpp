@@ -6,6 +6,7 @@ using namespace std;
 int main() {
 	string p;
 	Stack<int>* s0 = new Stack<int>();
+	Stack<int>* s1 = new Stack<int>();
 	s0->push(15);
 	s0->push(34);
 	s0->push(7);
@@ -21,9 +22,16 @@ int main() {
 	*/
 	Integer<int>* _myInteger = new Integer<int>();
 	_myInteger->getLista()->agregar(s0);
+	_myInteger->getLista()->agregar(s1);
 	//Integer<int>* _mySecondInteger = nullptr;	
 	cout << _myInteger->toString() << endl;
 	cout << _myInteger->getLista()->toString() << endl;
+	while (!_myInteger->getLista()->recuperar(0)->is_empty()) {
+		//cout << _myInteger->getLista()->recuperar(0)->pop() << endl;//imprimo los elementos del stack
+	_myInteger->getLista()->recuperar(1)->push(_myInteger->getLista()->recuperar(0)->pop());//paso los elementos del stack a otro
+	}
+	cout << _myInteger->getLista()->toString();
+
 	//_mySecondInteger = _myInteger;
 	//cout << _myInteger->toString() << endl;
 	//cout << _mySecondInteger->toString() << endl;

@@ -22,7 +22,7 @@ public:
 	//    virtual Integer<T>& operator==(const Integer<T>&);
 	//    virtual Integer<T>& operator*(const Integer<T>&);
 	//    virtual Integer<T>& operator/(const Integer<T>&);
-	//    virtual Integer<T>& operator+(const Integer<T>&);
+  //  virtual Integer<T>& operator+(const Integer<T>&);
 	//    virtual Integer<T>& operator-(const Integer<T>&);
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
@@ -98,11 +98,17 @@ inline Lista<Stack<T>>* Integer<T>::getLista()
 	return _lista;
 }
 
+//template<class T>
+//inline Integer<T>& Integer<T>::operator+(const Integer<T>&) {
+//	return NULL;
+//}
+
 template<class T>
 inline string Integer<T>::toString() const
 {
 	stringstream s;	
 		s << "El objeto declarado tiene: " << endl;
 		s << _lista->numElementos() << " elementos en la lista.\n";
+		//s << _lista->toString();
 	return s.str();
 }
