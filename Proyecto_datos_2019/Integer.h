@@ -19,7 +19,7 @@ public:
 	//    virtual Integer<T>* restar(Integer<T>*);
 	//    virtual Integer<T>* division(Integer<T>*);
 	//    virtual Integer<T>* multiplicacion(Integer<T>*);
-	//    virtual Integer<T>& operator==(const Integer<T>&);
+	virtual Integer<T>& operator==(const Integer<T>&);
 	//    virtual Integer<T>& operator*(const Integer<T>&);
 	//    virtual Integer<T>& operator/(const Integer<T>&);
     virtual Integer<Stack<T> >& operator+(const Integer<Stack<T> >&);
@@ -84,6 +84,12 @@ inline Integer<T>& Integer<T>::operator=(const Integer<T>& s)
 		_lista = s._lista;
 	}
 	return *this;
+}
+
+template<class T>
+inline Integer<T>& Integer<T>::operator==(const Integer<T>& objeto)
+{
+
 }
 
 template<class T>
