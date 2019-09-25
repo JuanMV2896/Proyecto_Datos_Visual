@@ -7,7 +7,7 @@ int main() {
 	string p;
 	Stack<int>* s0 = new Stack<int>();
 	Stack<int>* s1 = new Stack<int>();
-	Stack<int>* s2 = new Stack<int>();
+	Stack<int>* s2 = nullptr;
 	s0->push(2);
 	s0->push(4);
 	s0->push(6);
@@ -32,6 +32,9 @@ int main() {
 	else {
 		cout << "-------------------NO Son iguales----------------\n";
 	}
+	cout << "\RESTANDO STACKS\n";
+	s2 =*s0 - *s1;
+	cout << "s0: " << s2->toString() << endl;
 	Stack<int>* comodin = nullptr;
 	try {
 		cout << "Sumando STACKS\n";
