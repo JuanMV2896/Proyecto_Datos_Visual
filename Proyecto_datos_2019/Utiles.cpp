@@ -12,3 +12,9 @@ double convertirDouble(std::string s) {
 	r >> v;
 	return v;
 }
+int convertirCharaInt(char s) {
+	std::stringstream r(s);
+	double v;
+	r >> v;
+	return v;
+}
