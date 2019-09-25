@@ -14,10 +14,10 @@ public:
 	virtual ~Stack();
 	Stack<T>& operator=(const Stack<T>&);
 	bool operator==(const Stack<T>&);
-	Stack<T>& operator+(const Stack<T>&);
-	Stack<T>& operator-(const Stack<T>&);
-	Stack<T>& operator-=(const Stack<T>&);
-	Stack<T>& operator+=(const Stack<T>&);
+	Stack<T>* operator+(const Stack<T>&);
+	Stack<T>* operator-(const Stack<T>&);
+	void operator-=(const Stack<T>&);
+	void operator+=(const Stack<T>&);
 	virtual int is_empty() const;
 	virtual int max_size() const;
 	virtual int count() const;
@@ -86,46 +86,68 @@ inline bool Stack<T>::operator==(const Stack<T>& object)
 }
 
 template<class T>
-inline Stack<T>& Stack<T>::operator+(const Stack<T>& objeto)
+inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
+{
+	Stack<T>* nuevo = nullptr;
+	if (count() == objeto.count()) {
+		nuevo = new Stack<T>(_n);
+		T acarreo = 0;
+		bool siAcarrea = false;
+		for (int i = 0; i < count(); i++) {
+			if (siAcarrea) {
+				nuevo->push(_v[i] + objeto._v[i] + acarreo);
+				siAcarrea = false;
+			}
+			else {
+				nuevo->push(_v[i] + objeto._v[i]);
+			}
+			if (nuevo->top() > 9 && i != count() - 1) {
+				nuevo->push(nuevo->pop() % 10);
+				acarreo = 1;
+				siAcarrea = true;
+			}
+		}
+		if (nuevo->top() > 9)
+			throw exception(_objectOverflow_);
+	}
+	return nuevo;
+}
+
+template<class T>
+inline Stack<T>* Stack<T>::operator-(const Stack<T>& objeto)
+{
+	// TODO: insert return statement here
+}
+
+template<class T>
+inline void Stack<T>::operator-=(const Stack<T>& objeto)
+{
+	// TODO: insert return statement here
+}
+
+template<class T>
+inline void Stack<T>::operator+=(const Stack<T>& objeto)
 {
 	if (count() == objeto.count()) {
 		T acarreo = 0;
 		bool siAcarrea = false;
-		for (int i = 0; i < count() - 1; i++) {
+		for (int i = 0; i < count(); i++) {
 			if (siAcarrea) {
 				_v[i] += objeto._v[i] + acarreo;
-				acarreo = false;
+				siAcarrea = false;
 			}
 			else {
 				_v[i] += objeto._v[i];
 			}
-			if (_v[i] > 9) {
-				_v[i] = _v[i]%10;
-				acarreo = 1;				
+			if (_v[i] > 9 && i!=count()-1) {
+				_v[i] = _v[i] % 10;
+				acarreo = 1;
 				siAcarrea = true;
 			}
 		}
 		if (_v[count() - 1] > 9)
 			throw exception(_objectOverflow_);
 	}
-}
-
-template<class T>
-inline Stack<T>& Stack<T>::operator-(const Stack<T>&)
-{
-	// TODO: insert return statement here
-}
-
-template<class T>
-inline Stack<T>& Stack<T>::operator-=(const Stack<T>&)
-{
-	// TODO: insert return statement here
-}
-
-template<class T>
-inline Stack<T>& Stack<T>::operator+=(const Stack<T>&)
-{
-	// TODO: insert return statement here
 }
 
 template <class T>

@@ -7,23 +7,23 @@ int main() {
 	string p;
 	Stack<int>* s0 = new Stack<int>();
 	Stack<int>* s1 = new Stack<int>();
-	s0->push(1);
+	s0->push(9);
 	s0->push(3);
 	s0->push(7);
 	s0->push(5);
 	s0->push(3);
 	s0->push(8);
 	s0->push(2);
-	s0->push(1);
+	s0->push(4);
 	cout << "s0: " << s0->toString() << endl;
-	s1->push(1);
+	s1->push(9);
 	s1->push(3);
 	s1->push(7);
 	s1->push(5);
 	s1->push(3);
 	s1->push(8);
 	s1->push(2);
-	s1->push(1);
+	s1->push(4);
 	if (*s0 == *s1) {
 		cout << "-------------------Son iguales----------------\n";
 	}
@@ -31,7 +31,14 @@ int main() {
 		cout << "-------------------NO Son iguales----------------\n";
 	}
 	cout << "\nSUMANDO STACKS\n";
-	*s0 + *s1;
+	Stack<int>* suma3 = nullptr;
+	try {
+		suma3= *s0 + *s1;
+		cout << "Imprimiendo suma: " << suma3->toString() << endl;
+	}
+	catch (exception t) {
+		cerr << t.what() << endl;
+	}
 	cout << "s0: " << s0->toString() << endl;
 	//s0->~Stack();
 	/*
