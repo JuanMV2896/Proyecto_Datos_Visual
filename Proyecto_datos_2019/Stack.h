@@ -86,9 +86,28 @@ inline bool Stack<T>::operator==(const Stack<T>& object)
 }
 
 template<class T>
-inline Stack<T>& Stack<T>::operator+(const Stack<T>&)
+inline Stack<T>& Stack<T>::operator+(const Stack<T>& objeto)
 {
-	// TODO: insert return statement here
+	if (count() == objeto.count()) {
+		T acarreo = 0;
+		bool siAcarrea = false;
+		for (int i = 0; i < count() - 1; i++) {
+			if (siAcarrea) {
+				_v[i] += objeto._v[i] + acarreo;
+			}
+			else {
+				_v[i] += objeto._v[i];
+			}
+			if (_v[i] > 9) {
+				_v[i] -= 10;
+				acarreo = _v[i] - 9;
+				
+				siAcarrea = true;
+			}
+		}
+		if (_v[count() - 1] > 9)
+			throw exception(_objectOverflow_);
+	}
 }
 
 template<class T>

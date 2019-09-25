@@ -7,7 +7,7 @@ using namespace std;
 #define _nullPointerException_ "nullPointerException"
 #define _fullStackException_ "fullStackException"
 #define _canNotOverrideException_ "canNotOverride"
-
+#define _objectOverflow_ "objectOverflow"
 class ObjetoBase {
 public:
 	virtual ~ObjetoBase();
