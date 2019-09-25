@@ -15,16 +15,16 @@ int main() {
 	s0->push(8);
 	s0->push(3);
 	s0->push(1);
-	s0->push(3);
+	s0->push(9);
 	cout << "s0: " << s0->toString() << endl;
-	s1->push(1);
-	s1->push(3);
-	s1->push(7);
-	s1->push(5);
-	s1->push(3);
-	s1->push(8);
 	s1->push(2);
+	s1->push(4);
+	s1->push(6);
+	s1->push(7);
+	s1->push(8);
+	s1->push(3);
 	s1->push(1);
+	s1->push(3);
 	cout << "s1: " << s1->toString() << endl;
 	if (*s0 == *s1) {
 		cout << "-------------------Son iguales----------------\n";
@@ -32,8 +32,14 @@ int main() {
 	else {
 		cout << "-------------------NO Son iguales----------------\n";
 	}
-	cout << "\RESTANDO STACKS\n";
-	*s0 - *s1;
+	Stack<int>* comodin = nullptr;
+	try {
+		cout << "Sumando STACKS\n";
+		*s0 += *s1;
+	}
+	catch (exception ex) {
+		cerr << "Exception: " << ex.what() << endl;
+	}
 	cout << "s0: " << s0->toString() << endl;
 
 	//cout << "\nSUMANDO STACKS\n";

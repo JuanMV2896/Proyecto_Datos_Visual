@@ -142,6 +142,8 @@ inline void Stack<T>::operator-=(const Stack<T>& objeto)
 template<class T>
 inline void Stack<T>::operator+=(const Stack<T>& objeto)
 {
+	Stack<T>* comodin = new Stack<T>(_n);
+	*comodin = *this;
 	if (count() == objeto.count()) {
 		T acarreo = 0;
 		bool siAcarrea = false;
@@ -159,8 +161,11 @@ inline void Stack<T>::operator+=(const Stack<T>& objeto)
 				siAcarrea = true;
 			}
 		}
-		if (_v[count() - 1] > 9)
+		if (_v[count() - 1] > 9) {
+			*this = *comodin;
+			delete comodin;
 			throw exception(_objectOverflow_);
+		}
 	}
 }
 
