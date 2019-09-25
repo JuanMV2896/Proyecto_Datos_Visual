@@ -32,7 +32,7 @@ int main() {
 	else {
 		cout << "-------------------NO Son iguales----------------\n";
 	}
-	cout << "\RESTANDO STACKS\n";
+	cout << "RESTANDO STACKS\n";
 	s2 =*s0 - *s1;
 	cout << "s0: " << s2->toString() << endl;
 	Stack<int>* comodin = nullptr;

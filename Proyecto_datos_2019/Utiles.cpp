@@ -14,7 +14,7 @@ double convertirDouble(std::string s) {
 }
 int convertirCharaInt(char s) {
 	std::stringstream r(s);
-	double v;
+	int v;
 	r >> v;
 	return v;
 }
