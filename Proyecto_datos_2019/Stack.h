@@ -94,14 +94,14 @@ inline Stack<T>& Stack<T>::operator+(const Stack<T>& objeto)
 		for (int i = 0; i < count() - 1; i++) {
 			if (siAcarrea) {
 				_v[i] += objeto._v[i] + acarreo;
+				acarreo = false;
 			}
 			else {
 				_v[i] += objeto._v[i];
 			}
 			if (_v[i] > 9) {
-				_v[i] -= 10;
-				acarreo = _v[i] - 9;
-				
+				_v[i] = _v[i]%10;
+				acarreo = 1;				
 				siAcarrea = true;
 			}
 		}
