@@ -13,6 +13,10 @@ public:
 	virtual ~Lista();
 	Lista<T>& operator=(const Lista<T>&);
 	bool operator==(const Lista<T>&);
+	void operator+=(const Lista<T>&);
+	void operator-=(const Lista<T>&);
+	Lista<T>& operator+(const Lista<T>&);
+	Lista<T>& operator-(const Lista<T>&);
 	virtual int numElementos() const;
 	virtual void agregar(T*);
 	virtual void insertar(T*, int = -1);
@@ -47,6 +51,7 @@ public:
 	virtual void reiniciar();
 	virtual bool masElementos() const;
 	virtual T* proximoElemento();
+	virtual T* elementoActual();
 private:
 	nodo<T>* _primero;
 	nodo<T>* _actual;
@@ -116,6 +121,40 @@ inline bool Lista<T>::operator==(const Lista<T>& objeto)
 		return true;
 	}
 	return false;
+}
+
+template<class T>
+inline void Lista<T>::operator+=(const Lista<T>& object)
+{
+	iterador<T>* iter = obtenerIterador();
+	iterador<T>* iter_out = object.obtenerIterador();
+	T* elemento = iter->proximoElemento();
+	T* elemento_out = iter_out->proximoElemento();
+	while (elemento!=nullptr) {
+		if (elemento_out != nullptr) {
+			elemento = iter->proximoElemento();
+			elemento += elemento_out;
+			elemento_out = iter_out->proximoElemento();
+		}
+		else
+			break;
+	}
+}
+
+template<class T>
+inline void Lista<T>::operator-=(const Lista<T>& object)
+{
+}
+
+template<class T>
+inline Lista<T>& Lista<T>::operator+(const Lista<T>& object)
+{
+	
+}
+
+template<class T>
+inline Lista<T>& Lista<T>::operator-(const Lista<T>& object)
+{
 }
 
 template <class T>
@@ -214,7 +253,6 @@ T* Lista<T>::extraerUltimo() {
 		}
 		_n--;
 	}
-
 	return r;
 }
 
@@ -293,4 +331,10 @@ T* iteradorLista<T>::proximoElemento() {
 		_actual = _actual->obtenerSiguiente();
 	}
 	return r;
+}
+
+template<class T>
+inline T* iteradorLista<T>::elementoActual()
+{
+	return _actual;
 }

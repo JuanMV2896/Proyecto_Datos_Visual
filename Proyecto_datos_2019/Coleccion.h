@@ -38,6 +38,7 @@ public:
 	virtual void reiniciar() = 0;
 	virtual bool masElementos() const = 0;
 	virtual T* proximoElemento() = 0;
+	virtual T* elementoActual() = 0;
 };
 
 template <class T>
