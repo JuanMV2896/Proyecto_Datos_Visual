@@ -122,7 +122,21 @@ inline Stack<T>* Stack<T>::operator-(const Stack<T>& objeto)
 template<class T>
 inline void Stack<T>::operator-=(const Stack<T>& objeto)
 {
-	// TODO: insert return statement here
+	T acarreo = 0;
+	bool _siacarrea = false;
+	if (count() == objeto.count()) {
+		acarreo = 0;
+		_siacarrea = false;
+		for (int i = count() - 1; i >= 0; i--) {
+			if (_v[i] < objeto._v[i] && _v[i - 1]>0) {
+				_v[i - 1] -= 1;
+				acarreo = 10;
+				_v[i] += acarreo;
+				_siacarrea = true;
+			}
+			_v[i] -= objeto._v[i];
+		}
+	}
 }
 
 template<class T>
