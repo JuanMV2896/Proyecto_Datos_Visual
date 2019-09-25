@@ -15,7 +15,7 @@ int main() {
 	s0->push(8);
 	s0->push(3);
 	s0->push(1);
-	s0->push(9);
+	s0->push(3);
 	cout << "s0: " << s0->toString() << endl;
 	s1->push(2);
 	s1->push(4);
@@ -32,6 +32,18 @@ int main() {
 	else {
 		cout << "-------------------NO Son iguales----------------\n";
 	}
+	Lista<Stack<int>>* list = new Lista<Stack<int>>();
+	Lista<Stack<int>>* list2 = new Lista<Stack<int>>();
+	list->agregar(s0);
+	list2->agregar(s1);
+	cout << "Imprimiendo Lista 1 y Lista 2\n";
+	cout << list->toString();
+	cout << list2->toString();
+	cout << "\nSuma es: \n";
+	*list += *list2;
+	cout << list->toString();
+	cout << "\nfin de prueba\n";
+	cout << "Probando suma de lista/n";
 	cout << "RESTANDO STACKS\n";
 	s2 =*s0 - *s1;
 	cout << "s0: " << s2->toString() << endl;

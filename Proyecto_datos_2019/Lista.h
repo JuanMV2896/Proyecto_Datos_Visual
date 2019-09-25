@@ -51,7 +51,7 @@ public:
 	virtual void reiniciar();
 	virtual bool masElementos() const;
 	virtual T* proximoElemento();
-	virtual T* elementoActual();
+	//virtual T* elementoActual();
 private:
 	nodo<T>* _primero;
 	nodo<T>* _actual;
@@ -132,7 +132,7 @@ inline void Lista<T>::operator+=(const Lista<T>& object)
 	T* elemento_out = iter_out->proximoElemento();
 	while (elemento!=nullptr && elemento_out!=nullptr) {
 			elemento = iter->proximoElemento();
-			elemento += elemento_out;
+			*elemento += *elemento_out;
 			elemento_out = iter_out->proximoElemento();
 	}
 }
@@ -329,8 +329,8 @@ T* iteradorLista<T>::proximoElemento() {
 	return r;
 }
 
-template<class T>
-inline T* iteradorLista<T>::elementoActual()
-{
-	return _actual;
-}
+//template<class T>
+//inline T* iteradorLista<T>::elementoActual()
+//{
+//	return _actual;
+//}
