@@ -13,15 +13,17 @@ public:
 	Stack(const Stack<T>&);
 	virtual ~Stack();
 	Stack<T>& operator=(const Stack<T>&);
-	
+	bool operator==(const Stack<T>&);
+	Stack<T>& operator+(const Stack<T>&);
+	Stack<T>& operator-(const Stack<T>&);
+	Stack<T>& operator-=(const Stack<T>&);
+	Stack<T>& operator+=(const Stack<T>&);
 	virtual int is_empty() const;
 	virtual int max_size() const;
 	virtual int count() const;
 	virtual T top() const;
-
 	virtual void push(T);
 	virtual T pop();
-
 	virtual std::string toString() const;
 
 private:
@@ -29,6 +31,7 @@ private:
 	T* _v;
 	int _k;
 };
+
 template <class T>
 std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
 	salida << obj.toString();
@@ -59,16 +62,51 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& s) {
 		if (_v != NULL) {
 			delete _v;
 		}
-
 		_n = s._n;
 		_v = new T[s._n];
 		_k = 0;
-
 		for (int i = 0; i < s._k; i++) {
 			_v[_k++] = s._v[i];
 		}
 	}
 	return *this;
+}
+
+template<class T>
+inline bool Stack<T>::operator==(const Stack<T>& object)
+{
+	if (object.count() == count()) {
+		for (int i = 0; i < count() - 1; i++) {
+			if (this->_v[i] != object._v[i])
+				return false;
+		}
+		return true;
+	}
+	return false;
+}
+
+template<class T>
+inline Stack<T>& Stack<T>::operator+(const Stack<T>&)
+{
+	// TODO: insert return statement here
+}
+
+template<class T>
+inline Stack<T>& Stack<T>::operator-(const Stack<T>&)
+{
+	// TODO: insert return statement here
+}
+
+template<class T>
+inline Stack<T>& Stack<T>::operator-=(const Stack<T>&)
+{
+	// TODO: insert return statement here
+}
+
+template<class T>
+inline Stack<T>& Stack<T>::operator+=(const Stack<T>&)
+{
+	// TODO: insert return statement here
 }
 
 template <class T>
