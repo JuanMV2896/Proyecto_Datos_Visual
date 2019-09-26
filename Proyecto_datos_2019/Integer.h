@@ -25,7 +25,7 @@ public:
 	//    virtual Integer<T>& operator*(const Integer<T>&);
 	//    virtual Integer<T>& operator/(const Integer<T>&);
     
-	//    virtual Integer<T>& operator-(const Integer<T>&);
+	    virtual Integer<T>* operator-(const Integer<T>&);
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
 	//    virtual Integer<T>& operator*=(const Integer<T>&);
