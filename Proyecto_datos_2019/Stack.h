@@ -66,7 +66,7 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& s) {
 		_v = new T[s._n];
 		_k = 0;
 		for (int i = 0; i < s._k; i++) {
-			_v[_k++] = s._v[i];
+			_v[_k++] = s._v[i-1];	//se modifico el s._v[i] que era el original... para eliminar el warning..
 		}
 	}
 	return *this;
