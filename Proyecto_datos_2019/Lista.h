@@ -140,6 +140,15 @@ inline void Lista<T>::operator+=(const Lista<T>& object)
 template<class T>
 inline void Lista<T>::operator-=(const Lista<T>& object)
 {
+	iterador<T>* i = this->obtenerIterador();
+	iterador<T>* i2 = object.obtenerIterador();
+	T* elemento = i->proximoElemento();
+	T* elemento_out = i2->proximoElemento();
+	while (elemento != nullptr && elemento_out != nullptr) {
+		*elemento -= *elemento_out;
+		elemento = i->proximoElemento();
+		elemento_out = i2->proximoElemento();
+	}
 }
 
 template<class T>

@@ -51,8 +51,9 @@ int main() {
 	//cout << "\nSuma es: \n";
 	//list3 = *list + *list2;
 	cout << "\nResta es: \n";
-	list3 = *list - *list2;
-	cout << list3->toString();
+	//list3 = *list - *list2;
+	*list -= *list2;
+	cout << list->toString();
 	cout << "\nfin de prueba\n";
 	cout << "Probando suma de lista/n";
 	cout << "RESTANDO STACKS\n";
