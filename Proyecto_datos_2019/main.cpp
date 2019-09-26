@@ -17,14 +17,22 @@ int main() {
 	s0->push(1);
 	s0->push(3);
 	cout << "s0: " << s0->toString() << endl;
+	//s1->push(2);
+	//s1->push(4);
+	//s1->push(6);
+	//s1->push(7);
+	//s1->push(8);
+	//s1->push(3);
+	//s1->push(1);
+	//s1->push(3);
+	s1->push(3);
+	s1->push(5);
 	s1->push(2);
-	s1->push(4);
 	s1->push(6);
-	s1->push(7);
 	s1->push(8);
 	s1->push(3);
+	s1->push(4);
 	s1->push(1);
-	s1->push(3);
 	cout << "s1: " << s1->toString() << endl;
 	if (*s0 == *s1) {
 		cout << "-------------------Son iguales----------------\n";
@@ -40,8 +48,10 @@ int main() {
 	cout << "Imprimiendo Lista 1 y Lista 2\n";
 	cout << list->toString();
 	cout << list2->toString();
-	cout << "\nSuma es: \n";
-	list3 = *list + *list2;
+	//cout << "\nSuma es: \n";
+	//list3 = *list + *list2;
+	cout << "\nResta es: \n";
+	list3 = *list - *list2;
 	cout << list3->toString();
 	cout << "\nfin de prueba\n";
 	cout << "Probando suma de lista/n";

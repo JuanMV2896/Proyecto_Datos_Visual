@@ -16,7 +16,7 @@ public:
 	void operator+=(const Lista<T>&);	//listo
 	void operator-=(const Lista<T>&);	//falta
 	Lista<T>* operator+(const Lista<T>&);	//listo
-	Lista<T>& operator-(const Lista<T>&);	//falta
+	Lista<T>* operator-(const Lista<T>&);	//falta
 	virtual int numElementos() const;
 	virtual void agregar(T*);
 	virtual void insertar(T*, int = -1);
@@ -159,8 +159,19 @@ inline Lista<T>* Lista<T>::operator+(const Lista<T>& object)
 }
 
 template<class T>
-inline Lista<T>& Lista<T>::operator-(const Lista<T>& object)
+inline Lista<T>* Lista<T>::operator-(const Lista<T>& object)
 {
+	Lista<T>* tmp = new Lista<T>();
+	iterador<T>* i = this->obtenerIterador();
+	iterador<T>* i2 = object.obtenerIterador();
+	T* elemento = i->proximoElemento();
+	T* elemento_out = i2->proximoElemento();
+	while (elemento != nullptr && elemento_out != nullptr) {
+		tmp->agregar(*elemento - *elemento_out);
+		elemento = i->proximoElemento();
+		elemento_out = i2->proximoElemento();
+	}
+	return tmp;
 }
 
 template <class T>
