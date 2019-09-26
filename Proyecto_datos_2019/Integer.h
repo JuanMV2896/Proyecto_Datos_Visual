@@ -16,7 +16,7 @@ public:
 	virtual ~Integer();
 	virtual Integer<T>& operator=(const Integer<T>&);
 	virtual Integer<T>& operator==(const Integer<T>&);
-	virtual Integer<Stack<T> >& operator+(const Integer<Stack<T>>&);
+	virtual Integer<T>& operator+(const Integer<T>&);
 	//    virtual Integer<T>* sumar(Integer<T>*objeto);
 	//    virtual Integer<T>* restar(Integer<T>*);
 	//    virtual Integer<T>* division(Integer<T>*);
@@ -38,8 +38,8 @@ public:
 	//    virtual Integer<T>& operator<<(const Integer<T>&);
 	//    virtual long* parse(string);
 	//    virtual int* parse(string);
-	virtual void setLista(Lista<Stack<T>>*);
-	virtual Lista<Stack<T>>* getLista();
+	virtual void setLista(Lista<T>*);
+	virtual Lista<T>* getLista();
 	//virtual void setStack(Stack<T>*);
 	//virtual Stack<T>* getStack();
 	virtual string toString()const;
@@ -64,6 +64,7 @@ inline Integer<T>::Integer(Lista<Stack<T>>* x)
 template<class T>
 inline Integer<T>::Integer(const Integer& orig)
 {
+	
 	//Copiando Lista, como la lista ya tiene implementado el operador 
 	//de asignacion entonces se realiza directamente.
 	*_lista = *orig.getLista();
@@ -85,6 +86,7 @@ inline Integer<T>& Integer<T>::operator=(const Integer<T>& s)
 		}
 		_lista = s._lista;
 	}
+	
 	return *this;
 }
 
@@ -95,19 +97,19 @@ inline Integer<T>& Integer<T>::operator==(const Integer<T>& objeto)
 }
 
 template<class T>
-inline void Integer<T>::setLista(Lista<Stack<T>>* lista)
+inline void Integer<T>::setLista(Lista<T>* lista)
 {
 	_lista = lista;
 }
 
 template<class T>
-inline Lista<Stack<T>>* Integer<T>::getLista()
+inline Lista<T>* Integer<T>::getLista()
 {
 	return _lista;
 }
 
 template<class T>
-inline Integer<Stack<T>>& Integer<T>::operator+(const Integer<Stack<T>>& x) {
+inline Integer<T>& Integer<T>::operator+(const Integer<T>& x) {
 	int accarreo = 0;
 	int num1 = 0;
 	int num2 = 0;

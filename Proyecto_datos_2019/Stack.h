@@ -5,11 +5,13 @@
 using namespace std;
 
 #define MAX_ELEMENTS 20
+static bool _acarreo_ = false;
 
 template <class T>
 class Stack: public ObjetoBase {
 public:
 	Stack(int = MAX_ELEMENTS);
+	Stack(T valor, int = MAX_ELEMENTS);
 	Stack(const Stack<T>&);
 	virtual ~Stack();
 	Stack<T>& operator=(const Stack<T>&);
@@ -40,6 +42,12 @@ std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
 
 template <class T>
 Stack<T>::Stack(int n) : _n(n), _v(new T[n]), _k(0) {
+}
+
+template<class T>
+inline Stack<T>::Stack(T valor, int n) : _n(n), _v(new T[n]), _k(0)
+{
+	this->push(valor);
 }
 
 template <class T>
@@ -89,6 +97,10 @@ template<class T>
 inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 {
 	Stack<T>* nuevo = nullptr;
+	if (_acarreo_) {
+		this->_n[0] += 1;
+		_acarreo_ = false;
+	}
 	if (count() == objeto.count()) {
 		nuevo = new Stack<T>(_n);
 		T acarreo = 0;
@@ -107,8 +119,10 @@ inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 				siAcarrea = true;
 			}
 		}
-		if (nuevo->top() > 9)
-			throw exception(_objectOverflow_);
+		if (nuevo->top() > 9) {
+			nuevo->push(nuevo->pop() % 10);
+			_acarreo_ = true;
+		}
 	}
 	return nuevo;
 }
@@ -158,6 +172,10 @@ inline void Stack<T>::operator-=(const Stack<T>& objeto)
 template<class T>
 inline void Stack<T>::operator+=(const Stack<T>& objeto)
 {
+	if (_acarreo_) {
+		this->_n[0] += 1;
+		_acarreo_ = false;
+	}
 	Stack<T>* comodin = new Stack<T>(_n);
 	*comodin = *this;
 	if (count() == objeto.count()) {
@@ -178,6 +196,9 @@ inline void Stack<T>::operator+=(const Stack<T>& objeto)
 			}
 		}
 		if (_v[count() - 1] > 9) {
+		/*	nuevo->push(nuevo->pop() % 10);
+			_acarreo_ = true;*/
+			//no va a llegar a este caso, porque vamos a usar 9 digitos de 10 que permite el integer.
 			*this = *comodin;
 			delete comodin;
 			throw exception(_objectOverflow_);

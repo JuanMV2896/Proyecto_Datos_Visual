@@ -51,7 +51,6 @@ public:
 	virtual void reiniciar();
 	virtual bool masElementos() const;
 	virtual T* proximoElemento();
-	//virtual T* elementoActual();
 private:
 	nodo<T>* _primero;
 	nodo<T>* _actual;
@@ -89,10 +88,8 @@ template <class T>
 Lista<T>& Lista<T>::operator=(const Lista<T>& otra) {
 	if (this != &otra) {
 		this->extraerTodos();
-
 		_n = 0;
 		_primero = _ultimo = NULL;
-
 		nodo<T>* cursor = otra._primero;
 		while (cursor != NULL) {
 			nodo<T>* nuevo = new nodo<T>(cursor->obtenerInfo());
@@ -131,9 +128,14 @@ inline void Lista<T>::operator+=(const Lista<T>& object)
 	T* elemento = iter->proximoElemento();
 	T* elemento_out = iter_out->proximoElemento();
 	while (elemento!=nullptr && elemento_out!=nullptr) {
-			*elemento += *elemento_out;
-			elemento = iter->proximoElemento();
-			elemento_out = iter_out->proximoElemento();
+		*elemento += *elemento_out;
+		elemento = iter->proximoElemento();
+		elemento_out = iter_out->proximoElemento();
+	}	
+	if (_acarreo_) {
+			T* nuevo_stack_acarreo = new T(2);
+			this->insertar(nuevo_stack_acarreo, 0);
+			_acarreo_ = false;
 	}
 }
 
@@ -358,9 +360,3 @@ T* iteradorLista<T>::proximoElemento() {
 	}
 	return r;
 }
-
-//template<class T>
-//inline T* iteradorLista<T>::elementoActual()
-//{
-//	return _actual;
-//}
