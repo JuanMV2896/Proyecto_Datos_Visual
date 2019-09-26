@@ -11,12 +11,12 @@ public:
 	Lista();
 	Lista(const Lista<T>&);
 	virtual ~Lista();
-	Lista<T>& operator=(const Lista<T>&);
-	bool operator==(const Lista<T>&);
-	void operator+=(const Lista<T>&);
-	void operator-=(const Lista<T>&);
-	Lista<T>* operator+(const Lista<T>&);
-	Lista<T>& operator-(const Lista<T>&);
+	Lista<T>& operator=(const Lista<T>&);	//listo
+	bool operator==(const Lista<T>&);	//listo
+	void operator+=(const Lista<T>&);	//listo
+	void operator-=(const Lista<T>&);	//falta
+	Lista<T>* operator+(const Lista<T>&);	//listo
+	Lista<T>& operator-(const Lista<T>&);	//falta
 	virtual int numElementos() const;
 	virtual void agregar(T*);
 	virtual void insertar(T*, int = -1);

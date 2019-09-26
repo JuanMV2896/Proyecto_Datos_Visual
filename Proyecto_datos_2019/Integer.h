@@ -15,14 +15,16 @@ public:
 	Integer(const Integer<T>& orig);
 	virtual ~Integer();
 	virtual Integer<T>& operator=(const Integer<T>&);
+	virtual Integer<T>& operator==(const Integer<T>&);
+	virtual Integer<Stack<T> >& operator+(const Integer<Stack<T>>&);
 	//    virtual Integer<T>* sumar(Integer<T>*objeto);
 	//    virtual Integer<T>* restar(Integer<T>*);
 	//    virtual Integer<T>* division(Integer<T>*);
 	//    virtual Integer<T>* multiplicacion(Integer<T>*);
-	virtual Integer<T>& operator==(const Integer<T>&);
+	
 	//    virtual Integer<T>& operator*(const Integer<T>&);
 	//    virtual Integer<T>& operator/(const Integer<T>&);
-    virtual Integer<Stack<T> >& operator+(const Integer<Stack<T> >&);
+    
 	//    virtual Integer<T>& operator-(const Integer<T>&);
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
