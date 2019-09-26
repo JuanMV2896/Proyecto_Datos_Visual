@@ -170,9 +170,9 @@ inline Lista<T>* Lista<T>::operator+(const Lista<T>& object)
 }
 
 template<class T>
-inline Lista<T>* Lista<T>::operator-(const Lista<T>& object)
-{
-	Lista<T>* tmp = new Lista<T>();
+inline Lista<T>* Lista<T>::operator-(const Lista<T>& object)//preguntar si la lista contiene todo el numero guardado en diferentes stacks
+{															//si la lista es igual a un numero entonces hay que modificarlo 
+	Lista<T>* tmp = new Lista<T>();							//para que acarree
 	iterador<T>* i = this->obtenerIterador();
 	iterador<T>* i2 = object.obtenerIterador();
 	T* elemento = i->proximoElemento();

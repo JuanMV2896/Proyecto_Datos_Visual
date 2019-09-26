@@ -56,6 +56,9 @@ int main() {
 	cout << list->toString();
 	cout << "\nfin de prueba\n";
 	cout << "Probando suma de lista/n";
+	cout << "**************Integers*******" << endl;
+	//Integer<Lista<Stack<int>>>* in = new Integer<Lista<Stack<int>>>(list);
+	cout << "**************Integers*******" << endl;
 	cout << "RESTANDO STACKS\n";
 	s2 =*s0 - *s1;
 	cout << "s0: " << s2->toString() << endl;
