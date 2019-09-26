@@ -16,8 +16,8 @@ public:
 	virtual ~Integer();
 	virtual Integer<T>& operator=(const Integer<T>&);
 	virtual Integer<T>& operator==(const Integer<T>&);
-	virtual Integer<Stack<T> >& operator+(const Integer<Stack<T>>&);
-	//    virtual Integer<T>* sumar(Integer<T>*objeto);
+	//	  virtual Integer<Stack<T>>& operator+(const Integer<Stack<T>>&);
+	//    virtual Integer<T>* sumar(Integer<T>*);
 	//    virtual Integer<T>* restar(Integer<T>*);
 	//    virtual Integer<T>* division(Integer<T>*);
 	//    virtual Integer<T>* multiplicacion(Integer<T>*);
@@ -25,7 +25,7 @@ public:
 	//    virtual Integer<T>& operator*(const Integer<T>&);
 	//    virtual Integer<T>& operator/(const Integer<T>&);
     
-	//    virtual Integer<T>& operator-(const Integer<T>&);
+	    virtual Integer<T>* operator-(const Integer<T>&);
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
 	//    virtual Integer<T>& operator*=(const Integer<T>&);
@@ -38,8 +38,8 @@ public:
 	//    virtual Integer<T>& operator<<(const Integer<T>&);
 	//    virtual long* parse(string);
 	//    virtual int* parse(string);
-	virtual void setLista(Lista<Stack<T>>*);
-	virtual Lista<Stack<T>>* getLista();
+	virtual void setLista(Lista<T>*);
+	virtual Lista<T>* getLista();
 	//virtual void setStack(Stack<T>*);
 	//virtual Stack<T>* getStack();
 	virtual string toString()const;
@@ -95,26 +95,22 @@ inline Integer<T>& Integer<T>::operator==(const Integer<T>& objeto)
 }
 
 template<class T>
-inline void Integer<T>::setLista(Lista<Stack<T>>* lista)
+inline void Integer<T>::setLista(Lista<T>* lista)
 {
 	_lista = lista;
 }
 
 template<class T>
-inline Lista<Stack<T>>* Integer<T>::getLista()
+inline Lista<T>* Integer<T>::getLista()
 {
 	return _lista;
 }
 
 template<class T>
-inline Integer<Stack<T>>& Integer<T>::operator+(const Integer<Stack<T>>& x) {
-	int accarreo = 0;
-	int num1 = 0;
-	int num2 = 0;
-	//while (this->getLista()->recuperar(0)!=NULL && !this->getLista()->recuperar(0)->is_empty()) {
-
-	//}
-	return *this;
+inline Integer<T>* Integer<T>::operator-(const Integer<T>& x) {
+	Integer<T>* tmp = new Integer<T>();
+	tmp->setLista(*this->getLista() -= *x.getLista());
+	return tmp;
 }
 
 template<class T>
