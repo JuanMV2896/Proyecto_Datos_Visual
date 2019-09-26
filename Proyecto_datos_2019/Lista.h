@@ -131,8 +131,8 @@ inline void Lista<T>::operator+=(const Lista<T>& object)
 	T* elemento = iter->proximoElemento();
 	T* elemento_out = iter_out->proximoElemento();
 	while (elemento!=nullptr && elemento_out!=nullptr) {
-			elemento = iter->proximoElemento();
 			*elemento += *elemento_out;
+			elemento = iter->proximoElemento();
 			elemento_out = iter_out->proximoElemento();
 	}
 }
