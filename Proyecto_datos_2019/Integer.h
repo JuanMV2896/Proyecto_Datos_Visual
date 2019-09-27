@@ -1,135 +1,54 @@
 #pragma once
 #include"Lista.h"
 #include"Stack.h"
-//#include"ObjetoBase.h"
+#include"ObjetoBase.h"
 
 #define ZERO 0
 #define ONE 1
+#define _MAXNUMPERSTACK_ 9
 
 using namespace std;
-template<class T>
 class Integer : public ObjetoBase{
 public:
 	Integer();
 	Integer(string x);
-	Integer(Lista<T>*);
-	Integer(const Integer<T>& orig);
+	Integer(Lista<Stack<int>>*);
+
 	virtual ~Integer();
-	virtual Integer<T>& operator=(const Integer<T>&);
-	virtual Integer<T>& operator==(const Integer<T>&);
-	virtual Integer<T>& operator+(const Integer<T>&);
-	
-	//    virtual Integer<T>* sumar(Integer<T>*objeto);
-	//    virtual Integer<T>* restar(Integer<T>*);
-	//    virtual Integer<T>* division(Integer<T>*);
-	//    virtual Integer<T>* multiplicacion(Integer<T>*);	
-	//    virtual Integer<T>& operator*(const Integer<T>&);
-	//    virtual Integer<T>& operator/(const Integer<T>&);    
-	//  virtual Integer<T>* operator-(const Integer<T>&);
-	//    virtual Integer<T>& operator+=(const Integer<T>&);
-	//    virtual Integer<T>& operator-=(const Integer<T>&);
-	//    virtual Integer<T>& operator*=(const Integer<T>&);
-	//    virtual Integer<T>& operator/=(const Integer<T>&);
-	//    virtual Integer<T>& operator!=(const Integer<T>&);
-	//    virtual Integer<T>& operator<(const Integer<T>&);
-	//    virtual Integer<T>& operator<=(const Integer<T>&);
-	//    virtual Integer<T>& operator>(const Integer<T>&);
-	//    virtual Integer<T>& operator>=(const Integer<T>&);
-	//    virtual Integer<T>& operator<<(const Integer<T>&);
+	virtual Integer& operator=(const Integer&);
+	virtual Integer& operator+(const Integer&);
+	//virtual Integer& operator==(const Integer&);
+	//Integer(const Integer& orig);
+	//    virtual Integer* sumar(Integer*objeto);
+	//    virtual Integer* restar(Integer*);
+	//    virtual Integer* division(Integer*);
+	//    virtual Integer* multiplicacion(Integer*);	
+	//    virtual Integer& operator*(const Integer&);
+	//    virtual Integer& operator/(const Integer&);    
+	//  virtual Integer* operator-(const Integer&);
+	//    virtual Integer& operator+=(const Integer&);
+	//    virtual Integer& operator-=(const Integer&);
+	//    virtual Integer& operator*=(const Integer&);
+	//    virtual Integer& operator/=(const Integer&);
+	//    virtual Integer& operator!=(const Integer&);
+	//    virtual Integer& operator<(const Integer&);
+	//    virtual Integer& operator<=(const Integer&);
+	//    virtual Integer& operator>(const Integer&);
+	//    virtual Integer& operator>=(const Integer&);
+	//    virtual Integer& operator<<(const Integer&);
 	//    virtual long* parse(string);
 	//    virtual int* parse(string);
-	virtual void setLista(Lista<T>*);
-	virtual Lista<T>* getLista();
-	//virtual void setStack(Stack<T>*);
-	//virtual Stack<T>* getStack();
+	virtual void setLista(Lista<Stack<int>>*);
+	virtual Lista<Stack<int>>* getLista();
 	virtual string toString()const;
 
+	//Mas metodos...
+	int calcularNumeroOptimoDeRanuras(int _tam);
+	int calcularNumeroOptimoDeStacks(int _tam);
+	string getDetalles();
+	string getValor()const;
 private:
-	Lista<T>* _lista;
+	Lista<Stack<int>>* _lista;
+	string _valor;
 };
 
-template<class T>
-inline Integer<T>::Integer(string valor)
-{
-	int size = valor.length();
-}
-
-template<class T>
-inline Integer<T>::Integer():_lista(new Lista<T>())
-{
-}
-
-template<class T>
-inline Integer<T>::Integer(Lista<T>* x)
-{
-	_lista = x;
-}
-
-template<class T>
-inline Integer<T>::Integer(const Integer& orig)
-{
-	
-	//Copiando Lista, como la lista ya tiene implementado el operador 
-	//de asignacion entonces se realiza directamente.
-	*_lista = *orig.getLista();
-}
-
-template<class T>
-inline Integer<T>::~Integer()
-{
-	if(!_lista->vacia())
-		delete _lista;
-}
-
-template<class T>
-inline Integer<T>& Integer<T>::operator=(const Integer<T>& s)
-{
-	if (this != &s) {
-		if (_lista != nullptr) {
-			delete _lista;
-		}
-		_lista = s._lista;
-	}
-	
-	return *this;
-}
-
-template<class T>
-inline Integer<T>& Integer<T>::operator==(const Integer<T>& objeto)
-{
-
-}
-
-template<class T>
-inline void Integer<T>::setLista(Lista<T>* lista)
-{
-	_lista = lista;
-}
-
-template<class T>
-inline Lista<T>* Integer<T>::getLista()
-{
-	return _lista;
-}
-
-template<class T>
-inline Integer<T>& Integer<T>::operator+(const Integer<T>& x)
-{
-	int accarreo = 0;
-	int num1 = 0;
-	int num2 = 0;
-	//while (this->getLista()->recuperar(0)!=NULL && !this->getLista()->recuperar(0)->is_empty()) {
-
-	//}
-	return *this;
-}
-
-template<class T>
-inline string Integer<T>::toString() const
-{
-	stringstream s;	
-		s << "El objeto declarado tiene: " << endl;
-		s << _lista->numElementos() << " elementos en la lista.\n";
-		//s << _lista->toString();
-	return s.str();
-}

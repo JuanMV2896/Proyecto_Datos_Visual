@@ -11,7 +11,7 @@ template <class T>
 class Stack: public ObjetoBase {
 public:
 	Stack(int = MAX_ELEMENTS);
-	Stack(T valor, int = MAX_ELEMENTS);
+	//Stack(T valor, int = MAX_ELEMENTS);
 	Stack(const Stack<T>&);
 	virtual ~Stack();
 	Stack<T>& operator=(const Stack<T>&);
@@ -44,11 +44,11 @@ template <class T>
 Stack<T>::Stack(int n) : _n(n), _v(new T[n]), _k(0) {
 }
 
-template<class T>
-inline Stack<T>::Stack(T valor, int n) : _n(n), _v(new T[n]), _k(0)
-{
-	this->push(valor);
-}
+//template<class T>
+//inline Stack<T>::Stack(T valor, int n) : _n(n), _v(new T[n]), _k(0)
+//{
+//	this->push(valor);
+//}
 
 template <class T>
 Stack<T>::Stack(const Stack<T>& s) : _n(s._n), _v(new T[s._n]), _k(0) {
