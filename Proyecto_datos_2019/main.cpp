@@ -1,4 +1,10 @@
 #include "Integer.h"
+#include<cmath> 
+
+Integer* fib(int n) {
+	double phi = (1 + sqrt(5)) / 2;
+	return new Integer(std::to_string(round(pow(phi, n) / sqrt(5))));
+}
 
 int main() {
 	string numeroAEvaluar = "15896347258";
@@ -13,9 +19,13 @@ int main() {
 	cout << "Suma de ambos objetos Integer:\n";
 	_mySuma = *_myInteger + *_mySecondInteger  ;
 	cout <<_mySuma->getDetalles();
+
 	system("cls");
 	cout << "Calculando la serie de Fibonacci: " << endl;
-
+	Integer* _myFibonacci = nullptr;
+	int n = 1000;
+	_myFibonacci = fib(n);
+	std::cout << _myFibonacci->getDetalles()<< std::endl;
 
 	return 0;
 }

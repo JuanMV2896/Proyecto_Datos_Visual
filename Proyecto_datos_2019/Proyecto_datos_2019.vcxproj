@@ -123,12 +123,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bigint.cpp" />
     <ClCompile Include="Integer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ObjetoBase.cpp" />
     <ClCompile Include="Utiles.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bigint.h" />
     <ClInclude Include="Coleccion.h" />
     <ClInclude Include="Integer.h" />
     <ClInclude Include="Lista.h" />
