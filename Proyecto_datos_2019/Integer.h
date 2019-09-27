@@ -49,9 +49,9 @@ private:
 };
 
 template<class T>
-inline Integer<T>::Integer(string valor) {
+inline Integer<T>::Integer(string valor)
+{
 	int size = valor.length();
-	
 }
 
 template<class T>
@@ -113,7 +113,8 @@ inline Lista<T>* Integer<T>::getLista()
 }
 
 template<class T>
-inline Integer<T>& Integer<T>::operator+(const Integer<T>& x) {
+inline Integer<T>& Integer<T>::operator+(const Integer<T>& x)
+{
 	int accarreo = 0;
 	int num1 = 0;
 	int num2 = 0;
