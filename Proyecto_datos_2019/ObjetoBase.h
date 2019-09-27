@@ -2,14 +2,21 @@
 #include <iostream>
 #include <sstream>
 #include <exception>
-//#include "Utiles.h"
 using namespace std;
+
 //Definicion de excepciones
-static bool _acarreo_ = false;
+#define ZERO 0
+#define ONE 1
+#define UNDEFINE -1
 #define _nullPointerException_ "nullPointerException"
 #define _fullStackException_ "fullStackException"
 #define _canNotOverrideException_ "canNotOverride"
 #define _objectOverflow_ "objectOverflow"
+
+//VARIABLES GLOBALES
+static bool _acarreo_ = ZERO;
+static int _sectorDelAcarreo_ = UNDEFINE;
+
 class ObjetoBase {
 public:
 	virtual ~ObjetoBase();

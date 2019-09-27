@@ -7,7 +7,6 @@ using namespace std;
 
 #define MAX_ELEMENTS 20
 
-
 template <class T>
 class Stack: public ObjetoBase {
 public:
@@ -91,9 +90,9 @@ template<class T>
 inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 {
 	Stack<T>* nuevo = nullptr;
-	if (_acarreo_) {
-		this->_n[0] += 1;
-		_acarreo_ = false;
+	if (_acarreo_ && _sectorDelAcarreo_ != UNDEFINE) {
+		this->_n[_sectorDelAcarreo_] += ONE;
+		_acarreo_ = ZERO;
 	}
 	if (count() == objeto.count()) {
 		nuevo = new Stack<T>(_n);
