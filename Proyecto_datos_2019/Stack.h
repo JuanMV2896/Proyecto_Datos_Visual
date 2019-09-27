@@ -79,11 +79,11 @@ inline bool Stack<T>::operator==(const Stack<T>& object)
 	if (object.count() == count()) {
 		for (int i = 0; i < count() - 1; i++) {
 			if (this->_v[i] != object._v[i])
-				return false;
+				return ZERO;
 		}
-		return true;
+		return ONE;
 	}
-	return false;
+	return ZERO;
 }
 
 template<class T>
@@ -93,28 +93,30 @@ inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 	if (_acarreo_ && _sectorDelAcarreo_ != UNDEFINE) {
 		this->_n[_sectorDelAcarreo_] += ONE;
 		_acarreo_ = ZERO;
+		_sectorDelAcarreo_ = UNDEFINE;
 	}
 	if (count() == objeto.count()) {
 		nuevo = new Stack<T>(_n);
-		T acarreo = 0;
-		bool siAcarrea = false;
+		T acarreo = ZERO;
+		bool siAcarrea = ZERO;
 		for (int i = 0; i < count(); i++) {
 			if (siAcarrea) {
 				nuevo->push(_v[i] + objeto._v[i] + acarreo);
-				siAcarrea = false;
+				siAcarrea = ZERO;
 			}
 			else {
 				nuevo->push(_v[i] + objeto._v[i]);
 			}
-			if (nuevo->top() > 9 && i != count() - 1) {
+			if (std::to_string((int)nuevo->top()).length() > 9 && i != count() - 1) {
 				nuevo->push(nuevo->pop() % 10);
 				acarreo = 1;
-				siAcarrea = true;
+				siAcarrea = ONE;
 			}
 		}
 		if (nuevo->top() > 9) {
 			nuevo->push(nuevo->pop() % 10);
-			_acarreo_ = true;
+			_sectorDelAcarreo_ = ZERO;
+			_acarreo_ = ONE;
 		}
 	}
 	return nuevo;
