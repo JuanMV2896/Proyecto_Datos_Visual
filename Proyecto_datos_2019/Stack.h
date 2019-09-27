@@ -39,12 +39,6 @@ std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
 	return salida;
 }
 
-//template <class T>
-//std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
-//	salida << obj.toString();
-//	return salida;
-//}
-
 template <class T>
 Stack<T>::Stack(int n) : _n(n), _v(new T[n]), _k(0) {
 	for(int i=0;i<_n;i++)
@@ -252,9 +246,6 @@ inline void Stack<T>::operator+=(const Stack<T>& objeto)
 			}
 		}
 		if (_v[count() - 1] > 9) {
-		/*	nuevo->push(nuevo->pop() % 10);
-			_acarreo_ = true;*/
-			//no va a llegar a este caso, porque vamos a usar 9 digitos de 10 que permite el integer.
 			*this = *comodin;
 			delete comodin;
 			throw exception(_objectOverflow_);

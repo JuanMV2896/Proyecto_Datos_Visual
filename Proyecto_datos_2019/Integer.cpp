@@ -30,7 +30,7 @@ Integer::Integer(string valor)
 Integer::Integer(Lista<Stack<int>>* x)
 {
 	_lista = x;
-	_valor = x->obtenerValor();
+	_valor = x->obtenerValor(); 
 }
 
 Integer::~Integer()
@@ -45,9 +45,9 @@ Integer& Integer::operator=(const Integer& s)
 		if (_lista != nullptr) {
 			delete _lista;
 		}
+		_valor = s._valor;
 		_lista = s._lista;
 	}
-
 	return *this;
 }
 
