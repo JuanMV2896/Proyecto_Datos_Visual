@@ -13,5 +13,9 @@ int main() {
 	cout << "Suma de ambos objetos Integer:\n";
 	_mySuma = *_myInteger + *_mySecondInteger  ;
 	cout <<_mySuma->getDetalles();
+	system("cls");
+	cout << "Calculando la serie de Fibonacci: " << endl;
+
+
 	return 0;
 }
