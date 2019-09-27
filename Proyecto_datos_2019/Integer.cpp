@@ -68,6 +68,12 @@ Integer* Integer::operator+(const Integer& x)
 	return _nuevo;
 }
 
+Integer& Integer::operator*(const Integer& objeto)
+{
+	Integer nuevo = *this * objeto;
+	return nuevo;
+}
+
 string Integer::toString() const
 {
 	stringstream s;

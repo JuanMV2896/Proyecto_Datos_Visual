@@ -16,6 +16,7 @@ public:
 	Stack<T>& operator=(const Stack<T>&);	//listo
 	bool operator==(const Stack<T>&);	//listo
 	Stack<T>* operator+(const Stack<T>&);	//listo
+	Stack<T>* operator*(const Stack<T>&);	//listo
 	Stack<T>* operator-(const Stack<T>&);
 	void operator-=(const Stack<T>&);
 	void operator+=(const Stack<T>&);
@@ -175,6 +176,14 @@ inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 		_acarreo_ = ONE;
 	}
 	return nuevo;
+}
+
+template<class T>
+inline Stack<T>* Stack<T>::operator*(const Stack<T>& objeto)
+{
+	if (this->count() > objeto.count()) {
+
+	}
 }
 
 template<class T>

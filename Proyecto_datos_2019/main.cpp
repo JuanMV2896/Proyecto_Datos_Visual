@@ -26,6 +26,7 @@ int main() {
 	int n = 1100;
 	_myFibonacci = fib(n);
 	std::cout << _myFibonacci->getDetalles()<< std::endl;
+	cout << "\n--------Calculando el factorial---------" << endl;
 
 	return 0;
 }

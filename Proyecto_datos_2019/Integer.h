@@ -21,14 +21,15 @@ public:
 	virtual Integer& operator=(const Integer&);
 	//Sobrecarga del operador+
 	virtual Integer* operator+(const Integer&);
-
+	//Sobrecarga del operador*
+	virtual Integer& operator*(const Integer&);
 	//virtual Integer& operator==(const Integer&);
 	//Integer(const Integer& orig);
 	//    virtual Integer* sumar(Integer*objeto);
 	//    virtual Integer* restar(Integer*);
 	//    virtual Integer* division(Integer*);
 	//    virtual Integer* multiplicacion(Integer*);	
-	//    virtual Integer& operator*(const Integer&);
+
 	//    virtual Integer& operator/(const Integer&);    
 	//  virtual Integer* operator-(const Integer&);
 	//    virtual Integer& operator+=(const Integer&);
