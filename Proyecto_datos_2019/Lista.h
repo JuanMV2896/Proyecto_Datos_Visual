@@ -24,6 +24,7 @@ public:
 	virtual T* extraerUltimo();
 	virtual T* recuperar(int) const;
 	virtual iterador<T>* obtenerIterador() const;
+	virtual string obtenerValor();
 private:
 	int _n;
 	nodo<T>* _primero;
@@ -302,6 +303,19 @@ T* Lista<T>::recuperar(int i) const {
 template <class T>
 iterador<T>* Lista<T>::obtenerIterador() const {
 	return new iteradorLista<T>(_primero);
+}
+
+template<class T>
+inline string Lista<T>::obtenerValor()
+{
+	stringstream s;
+	iterador<T>* iter = obtenerIterador();
+	T* elemento = iter->proximoElemento();
+	while (elemento != nullptr) {
+		s << *elemento;
+		elemento = iter->proximoElemento();
+	}
+	return s.str();
 }
 
 template <class T>

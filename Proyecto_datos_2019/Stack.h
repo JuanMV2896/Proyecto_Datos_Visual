@@ -10,12 +10,12 @@ using namespace std;
 template <class T>
 class Stack: public ObjetoBase {
 public:
-	Stack(int = MAX_ELEMENTS);
+	Stack(int = MAX_ELEMENTS); //listo
 	Stack(const Stack<T>&);
-	virtual ~Stack();
-	Stack<T>& operator=(const Stack<T>&);
-	bool operator==(const Stack<T>&);
-	Stack<T>* operator+(const Stack<T>&);
+	virtual ~Stack(); 
+	Stack<T>& operator=(const Stack<T>&);	//listo
+	bool operator==(const Stack<T>&);	//listo
+	Stack<T>* operator+(const Stack<T>&);	//listo
 	Stack<T>* operator-(const Stack<T>&);
 	void operator-=(const Stack<T>&);
 	void operator+=(const Stack<T>&);
@@ -25,22 +25,32 @@ public:
 	virtual T top() const;
 	virtual void push(T);
 	virtual T pop();
-	virtual std::string toString() const;
+	virtual string toString() const;
+	virtual string valorToSring() const;
 
 private:
 	int _n;
 	T* _v;
 	int _k;
 };
-
 template <class T>
 std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
-	salida << obj.toString();
+	salida << obj.valorToSring();
 	return salida;
 }
 
+//template <class T>
+//std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
+//	salida << obj.toString();
+//	return salida;
+//}
+
 template <class T>
 Stack<T>::Stack(int n) : _n(n), _v(new T[n]), _k(0) {
+	for(int i=0;i<_n;i++)
+		_v[i]=0;
+	for (int i = 0; i < _n; i++)
+		_v[i];
 }
 
 template <class T>
@@ -89,16 +99,18 @@ inline bool Stack<T>::operator==(const Stack<T>& object)
 template<class T>
 inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 {
+	int queSon = -1;
 	Stack<T>* nuevo = nullptr;
 	if (_acarreo_ && _sectorDelAcarreo_ != UNDEFINE) {
-		this->_n[_sectorDelAcarreo_] += ONE;
+		_v[_sectorDelAcarreo_] += ONE;
 		_acarreo_ = ZERO;
 		_sectorDelAcarreo_ = UNDEFINE;
 	}
+	nuevo = new Stack<T>(_n);
+	T acarreo = ZERO;
+	bool siAcarrea = ZERO;
 	if (count() == objeto.count()) {
-		nuevo = new Stack<T>(_n);
-		T acarreo = ZERO;
-		bool siAcarrea = ZERO;
+		queSon = 0;
 		for (int i = 0; i < count(); i++) {
 			if (siAcarrea) {
 				nuevo->push(_v[i] + objeto._v[i] + acarreo);
@@ -108,16 +120,62 @@ inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 				nuevo->push(_v[i] + objeto._v[i]);
 			}
 			if (std::to_string((int)nuevo->top()).length() > 9 && i != count() - 1) {
-				nuevo->push(nuevo->pop() % 10);
+				nuevo->push(removerPrimerDigito(nuevo->pop()));
 				acarreo = 1;
 				siAcarrea = ONE;
 			}
 		}
-		if (nuevo->top() > 9) {
-			nuevo->push(nuevo->pop() % 10);
-			_sectorDelAcarreo_ = ZERO;
-			_acarreo_ = ONE;
+	}
+	else {
+		if (count() > objeto.count()) {
+			queSon = 1;
+			for (int i = 0; i < objeto.count(); i++) {
+				if (siAcarrea) {
+					nuevo->push(_v[i] + objeto._v[i] + acarreo);
+					siAcarrea = ZERO;
+				}
+				else {
+					nuevo->push(_v[i] + objeto._v[i]);
+				}
+				if (std::to_string((int)nuevo->top()).length() > 9 && i != count() - 1) {
+					nuevo->push(removerPrimerDigito(nuevo->pop()));
+					acarreo = 1;
+					siAcarrea = ONE;
+				}
+			}
 		}
+		else {
+			queSon = -1;
+			for (int i = 0; i < count(); i++) {
+				if (siAcarrea) {
+					nuevo->push(_v[i] + objeto._v[i] + acarreo);
+					siAcarrea = ZERO;
+				}
+				else {
+					nuevo->push(_v[i] + objeto._v[i]);
+				}
+				if (std::to_string((int)nuevo->top()).length() > 9 && i != count() - 1) {
+					nuevo->push(removerPrimerDigito(nuevo->pop()));
+					acarreo = 1;
+					siAcarrea = ONE;
+				}
+			}
+		}
+	}
+	if (queSon == 1) {
+		for (int i = objeto.count(); i < count(); i++) {
+			nuevo->push(_v[i]);
+		}
+	}
+	else if (queSon == -1) {
+		for (int i = count(); i < objeto.count(); i++) {
+			nuevo->push(objeto._v[i]);
+		}
+	}
+	if (std::to_string((int)nuevo->top()).length() > 9) {
+		nuevo->push(removerPrimerDigito(nuevo->pop()));
+		_sectorDelAcarreo_ = ZERO;
+		_acarreo_ = ONE;
 	}
 	return nuevo;
 }
@@ -257,5 +315,16 @@ string Stack<T>::toString() const{
 		}
 	}
 	r << "]";
+	return r.str();
+}
+
+template<class T>
+inline string Stack<T>::valorToSring() const
+{
+	stringstream r;
+	r << "";
+	for (int i = _k-1; i >= 0; i--) {
+		r << _v[i];
+	}
 	return r.str();
 }

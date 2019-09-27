@@ -14,7 +14,7 @@ public:
 
 	virtual ~Integer();
 	virtual Integer& operator=(const Integer&);
-	virtual Integer& operator+(const Integer&);
+	virtual Integer* operator+(const Integer&);
 	//virtual Integer& operator==(const Integer&);
 	//Integer(const Integer& orig);
 	//    virtual Integer* sumar(Integer*objeto);

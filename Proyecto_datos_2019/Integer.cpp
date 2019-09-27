@@ -30,6 +30,7 @@ Integer::Integer(string valor)
 Integer::Integer(Lista<Stack<int>>* x)
 {
 	_lista = x;
+	_valor = x->obtenerValor();
 }
 
 Integer::~Integer()
@@ -60,15 +61,11 @@ Lista<Stack<int>>* Integer::getLista()
 	return _lista;
 }
 
-Integer& Integer::operator+(const Integer& x)
+Integer* Integer::operator+(const Integer& x)
 {
-	int accarreo = 0;
-	int num1 = 0;
-	int num2 = 0;
-	//while (this->getLista()->recuperar(0)!=NULL && !this->getLista()->recuperar(0)->is_empty()) {
-
-	//}
-	return *this;
+	Integer* _nuevo = nullptr;
+	_nuevo = new Integer(*_lista + *x._lista);
+	return _nuevo;
 }
 
 string Integer::toString() const
