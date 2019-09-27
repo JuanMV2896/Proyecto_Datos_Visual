@@ -19,6 +19,12 @@ int convertirCharaInt(char s) {
 	return v;
 }
 
+int removerPrimerDigito(int n)
+{
+	if (n < 10) return 0;
+	else return n % 10 + removerPrimerDigito(n / 10) * 10;
+}
+
 //int calcularNumeroOptimoDeStacks(int size)
 //{
 //	float valor = 0;

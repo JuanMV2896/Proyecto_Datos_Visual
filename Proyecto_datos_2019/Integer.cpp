@@ -32,14 +32,6 @@ Integer::Integer(Lista<Stack<int>>* x)
 	_lista = x;
 }
 
-//inline Integer::Integer(const Integer& orig)
-//{
-//	
-//	//Copiando Lista, como la lista ya tiene implementado el operador 
-//	//de asignacion entonces se realiza directamente.
-////	*_lista = *orig.getLista();
-//}
-
 Integer::~Integer()
 {
 	if (!_lista->vacia())
@@ -57,11 +49,6 @@ Integer& Integer::operator=(const Integer& s)
 
 	return *this;
 }
-
-//inline Integer& Integer::operator==(const Integer& objeto)
-//{
-//	return exception("No validado");
-//}
 
 void Integer::setLista(Lista<Stack<int>>* lista)
 {

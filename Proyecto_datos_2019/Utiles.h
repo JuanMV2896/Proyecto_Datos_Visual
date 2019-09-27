@@ -4,4 +4,4 @@
 int convertirInt(std::string);
 double convertirDouble(std::string);
 int convertirCharaInt(char);
-//int calcularNumeroOptimoDeStacks(int size);
+int removerPrimerDigito(int n);

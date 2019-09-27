@@ -2,7 +2,6 @@
 #include"Lista.h"
 #include"Stack.h"
 #include"ObjetoBase.h"
-#include "Utiles.h"
 #define ZERO 0
 #define ONE 1
 #define _MAXNUMPERSTACK_ 9

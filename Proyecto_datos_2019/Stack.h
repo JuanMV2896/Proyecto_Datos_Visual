@@ -2,6 +2,7 @@
 #include <exception>
 #include <iostream>
 #include <sstream>
+#include "Utiles.h"
 using namespace std;
 
 #define MAX_ELEMENTS 20
@@ -11,7 +12,6 @@ template <class T>
 class Stack: public ObjetoBase {
 public:
 	Stack(int = MAX_ELEMENTS);
-	//Stack(T valor, int = MAX_ELEMENTS);
 	Stack(const Stack<T>&);
 	virtual ~Stack();
 	Stack<T>& operator=(const Stack<T>&);
@@ -43,12 +43,6 @@ std::ostream& operator<<(std::ostream& salida, const Stack<T>& obj) {
 template <class T>
 Stack<T>::Stack(int n) : _n(n), _v(new T[n]), _k(0) {
 }
-
-//template<class T>
-//inline Stack<T>::Stack(T valor, int n) : _n(n), _v(new T[n]), _k(0)
-//{
-//	this->push(valor);
-//}
 
 template <class T>
 Stack<T>::Stack(const Stack<T>& s) : _n(s._n), _v(new T[s._n]), _k(0) {
