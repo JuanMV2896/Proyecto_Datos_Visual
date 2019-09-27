@@ -73,7 +73,6 @@ string Integer::toString() const
 	stringstream s;
 	s << "El objeto declarado tiene: " << endl;
 	s << _lista->numElementos() << " elementos en la lista.\n";
-	//s << _lista->toString();
 	return s.str();
 }
 

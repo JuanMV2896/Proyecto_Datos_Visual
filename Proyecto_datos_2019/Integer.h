@@ -21,6 +21,7 @@ public:
 	virtual Integer& operator=(const Integer&);
 	//Sobrecarga del operador+
 	virtual Integer* operator+(const Integer&);
+
 	//virtual Integer& operator==(const Integer&);
 	//Integer(const Integer& orig);
 	//    virtual Integer* sumar(Integer*objeto);
