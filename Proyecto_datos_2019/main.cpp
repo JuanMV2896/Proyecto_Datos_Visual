@@ -11,7 +11,7 @@ int calcularNumeroOptimoDeRanuras(int size);
 int calcularNumeroOptimoDeStacks(int size);
 int main() {
 	string numeroAEvaluar = "3825709324859034825973248905238593240509324759043858934758932489042850429578324594238590824590832409583249058324905832";
-	int numeroDigitos = numeroAEvaluar.size();
+	int numeroDigitos = 700;
 	int ranuras = calcularNumeroOptimoDeRanuras(numeroDigitos);
 	int stacks = calcularNumeroOptimoDeStacks(numeroDigitos);
 	cout << "Dgitos del numero: " << numeroDigitos << endl;
@@ -120,15 +120,9 @@ int calcularNumeroOptimoDeRanuras(int size)
 	int _vecOptimo[9];
 	int casosOptimos = 0;
 	int pos = 0;
-	_vec[8] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)9.00;
-	_vec[7] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)8.00;
-	_vec[6] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)7.00;
-	_vec[5] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)6.00;
-	_vec[4] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMAXSIZE_;
-	_vec[3] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMEDIUMPLUSIZE_;
-	_vec[2] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMEDIUMSIZE_;
-	_vec[1] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMEDIUMLOWSIZE_;
-	_vec[0] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMINSIZE;
+	for (int i = 0; i < 9; i++) {
+		_vec[i]= (float)(size / (float)_MAXNUMPERSTACK_) / (float)(i+1);
+	}
 	for (int i = 0; i < 9; i++) {
 		if ((_vec[i] - (int)_vec[i]) == 0) {
 			pos = i;
@@ -151,15 +145,9 @@ int calcularNumeroOptimoDeStacks(int size)
 	int _vecOptimo[9];
 	int casosOptimos = 0;
 	int pos = 0;
-	_vec[8] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)9.00;
-	_vec[7] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)8.00;
-	_vec[6] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)7.00;
-	_vec[5] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)6.00;
-	_vec[4] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMAXSIZE_;
-	_vec[3] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMEDIUMPLUSIZE_;
-	_vec[2] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMEDIUMSIZE_;
-	_vec[1] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMEDIUMLOWSIZE_;
-	_vec[0] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)_STACKMINSIZE;
+	for (int i = 0; i < 9; i++) {
+		_vec[i] = (float)(size / (float)_MAXNUMPERSTACK_) / (float)(i + 1);
+	}
 	for (int i = 0; i < 9; i++) {
 		if ((_vec[i] - (int)_vec[i]) == 0) {
 			pos = i;
