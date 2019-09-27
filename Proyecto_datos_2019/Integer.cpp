@@ -134,7 +134,6 @@ string Integer::getDetalles()
 {
 	int numStacks = calcularNumeroOptimoDeStacks(_valor.length());
 	int numRanuras = calcularNumeroOptimoDeRanuras(_valor.length());
-
 	stringstream s;
 	s << "El numero con el que se va a trabajar es: \n";
 	s << _valor << endl;
