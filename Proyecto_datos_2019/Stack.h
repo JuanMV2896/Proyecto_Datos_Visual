@@ -106,7 +106,10 @@ inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 		_acarreo_ = ZERO;
 		_sectorDelAcarreo_ = UNDEFINE;
 	}
-	nuevo = new Stack<T>(_n);
+	if (_n > objeto._n || _n == objeto._n)
+		nuevo = new Stack<T>(_n);
+	else
+		nuevo = new Stack<T>(objeto._n);
 	T acarreo = ZERO;
 	bool siAcarrea = ZERO;
 	if (count() == objeto.count()) {

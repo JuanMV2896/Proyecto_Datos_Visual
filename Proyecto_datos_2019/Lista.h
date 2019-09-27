@@ -13,7 +13,7 @@ public:
 	virtual ~Lista();
 	Lista<T>& operator=(const Lista<T>&);	//listo
 	bool operator==(const Lista<T>&);	//listo
-	void operator+=(const Lista<T>&);	//listo
+	void operator+=(const Lista<T>&);	//falta
 	void operator-=(const Lista<T>&);	//falta
 	Lista<T>* operator+(const Lista<T>&);	//listo
 	Lista<T>* operator-(const Lista<T>&);	//falta

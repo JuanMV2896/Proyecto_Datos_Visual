@@ -11,7 +11,7 @@ int main() {
 	cout << "\nDetalles del segundo Integer\n";
 	cout << _mySecondInteger->getDetalles();
 	cout << "Suma de ambos objetos Integer:\n";
-	_mySuma =  *_mySecondInteger + *_myInteger ;
+	_mySuma = *_myInteger + *_mySecondInteger  ;
 	cout <<_mySuma->getDetalles();
 	return 0;
 }
