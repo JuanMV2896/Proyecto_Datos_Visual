@@ -9,6 +9,16 @@ Integer::Integer(string valor)
 	int stacks = calcularNumeroOptimoDeStacks(valor.length());
 	for (int i = 0; i < stacks; i++) {
 		_myStack = new Stack<int>(ranuras);
+		for (int j = 0; j < ranuras; j++) {
+			if (valor.length() > 9) {
+				_myStack->push(convertirInt(valor.substr(valor.length() - 9, valor.length())));
+				valor = valor.substr(0, valor.length() - 9);
+			}
+			else {
+				_myStack->push(convertirInt(valor));
+				valor.clear();
+			}
+		}		
 		_lista->agregar(_myStack);
 	}
 }
