@@ -1,7 +1,7 @@
 #pragma once
 #include"Lista.h"
 #include"Stack.h"
-#include"ObjetoBase.h"
+//#include"ObjetoBase.h"
 
 #define ZERO 0
 #define ONE 1
@@ -11,21 +11,21 @@ template<class T>
 class Integer : public ObjetoBase{
 public:
 	Integer();
-	Integer(Lista<Stack<T>>*);
+	Integer(string x);
+	Integer(Lista<T>*);
 	Integer(const Integer<T>& orig);
 	virtual ~Integer();
 	virtual Integer<T>& operator=(const Integer<T>&);
 	virtual Integer<T>& operator==(const Integer<T>&);
 	virtual Integer<T>& operator+(const Integer<T>&);
+	
 	//    virtual Integer<T>* sumar(Integer<T>*objeto);
 	//    virtual Integer<T>* restar(Integer<T>*);
 	//    virtual Integer<T>* division(Integer<T>*);
-	//    virtual Integer<T>* multiplicacion(Integer<T>*);
-	
+	//    virtual Integer<T>* multiplicacion(Integer<T>*);	
 	//    virtual Integer<T>& operator*(const Integer<T>&);
-	//    virtual Integer<T>& operator/(const Integer<T>&);
-    
-	    virtual Integer<T>* operator-(const Integer<T>&);
+	//    virtual Integer<T>& operator/(const Integer<T>&);    
+	//  virtual Integer<T>* operator-(const Integer<T>&);
 	//    virtual Integer<T>& operator+=(const Integer<T>&);
 	//    virtual Integer<T>& operator-=(const Integer<T>&);
 	//    virtual Integer<T>& operator*=(const Integer<T>&);
@@ -45,18 +45,22 @@ public:
 	virtual string toString()const;
 
 private:
-	//Lista<Stack<T>>* _lista;
-	Lista<Stack<T>>* _lista;
-	//Stack<T>* _stack;
+	Lista<T>* _lista;
 };
 
 template<class T>
-inline Integer<T>::Integer():_lista(new Lista<Stack<T>>())
+inline Integer<T>::Integer(string valor) {
+	int size = valor.length();
+	
+}
+
+template<class T>
+inline Integer<T>::Integer():_lista(new Lista<T>())
 {
 }
 
 template<class T>
-inline Integer<T>::Integer(Lista<Stack<T>>* x)
+inline Integer<T>::Integer(Lista<T>* x)
 {
 	_lista = x;
 }

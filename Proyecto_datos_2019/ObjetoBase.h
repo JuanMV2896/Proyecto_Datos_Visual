@@ -2,8 +2,10 @@
 #include <iostream>
 #include <sstream>
 #include <exception>
+//#include "Utiles.h"
 using namespace std;
 //Definicion de excepciones
+static bool _acarreo_ = false;
 #define _nullPointerException_ "nullPointerException"
 #define _fullStackException_ "fullStackException"
 #define _canNotOverrideException_ "canNotOverride"

@@ -18,3 +18,22 @@ int convertirCharaInt(char s) {
 	r >> v;
 	return v;
 }
+
+//int calcularNumeroOptimoDeStacks(int size)
+//{
+//	float valor = 0;
+//	float _vec[5];
+//	int pos = 0;
+//	_vec[0] = (float) (size / _MAXNUMPERSTACK_)/_STACKMAXSIZE_;
+//	_vec[1] = (float)(size / _MAXNUMPERSTACK_) / _STACKMEDIUMPLUSIZE_;
+//	_vec[2] = (float)(size / _MAXNUMPERSTACK_) / _STACKMEDIUMSIZE_;
+//	_vec[3] = (float)(size / _MAXNUMPERSTACK_) / _STACKMEDIUMLOWSIZE_;
+//	_vec[4] = (float)(size / _MAXNUMPERSTACK_) / _STACKMINSIZE;
+//	for(int i=0;i<5;i++){
+//		if ((_vec[i] - (int)_vec[i]) > valor) {
+//			valor = _vec[i] - (int)_vec[i];
+//			pos = i;
+//		}
+//	}
+//	return pos;
+//}

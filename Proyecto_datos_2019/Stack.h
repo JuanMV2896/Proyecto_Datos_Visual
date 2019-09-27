@@ -5,7 +5,7 @@
 using namespace std;
 
 #define MAX_ELEMENTS 20
-static bool _acarreo_ = false;
+
 
 template <class T>
 class Stack: public ObjetoBase {
