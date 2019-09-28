@@ -6,6 +6,11 @@ int convertirInt(std::string s) {
 	r >> v;
 	return v;
 }
+std::string convertirIntastring(int x) {
+	std::stringstream ss;
+	ss << x;
+	return ss.str();
+}
 double convertirDouble(std::string s) {
 	std::stringstream r(s);
 	double v;
@@ -23,6 +28,12 @@ int removerPrimerDigito(int n)
 {
 	if (n < 10) return 0;
 	else return n % 10 + removerPrimerDigito(n / 10) * 10;
+}
+
+int obtenerPrimerDigito(int n) {
+	int num;
+	num = n / pow(10, (int)log10(n));
+	return num;
 }
 
 //int calcularNumeroOptimoDeStacks(int size)

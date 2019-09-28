@@ -190,21 +190,86 @@ template<class T>
 inline Stack<T>* Stack<T>::operator-(const Stack<T>& objeto)
 {
 	Stack<T>* nuevo = nullptr;
-	if (count() == objeto.count()) {
-		nuevo = new Stack<T>(_n);
-		T acarreo = 0;
-		bool _siacarrea = false;
-		for (int i = count() - 1; i >= 0; i--) {
-			if (_v[i] < objeto._v[i] && _v[i - 1]>0) {
-				_v[i - 1] -= 1;
-				acarreo = 10;
-				_v[i] += acarreo;
-				_siacarrea = true;
+	Stack<T>* cont1 = new Stack<T>();
+	Stack<T>* cont2 = new Stack<T>();
+	int acarreoX = 0;
+	T res1;
+	T res2;
+	//for (int p = this->count() - 1; p >= 0; p--) {
+	nuevo = new Stack<T>(_n);
+		for (int i = this->count() - 1; i >= 0; i--) {
+			string resultado = "";
+			string concatena = "";
+			int cont;
+			if (this->_v[i] != NULL) {
+				res1 = this->_v[i];
 			}
-			nuevo->_v[i] = _v[i] - objeto._v[i];
-			nuevo->_k++;
+			else {
+				res1 = 0;
+			}
+			while (res1 != 0) {
+				cont = obtenerPrimerDigito(res1);
+				res1 = removerPrimerDigito(res1);
+				if (acarreoX == 1 && res1 == 0) {
+					cont1->push(cont - 1);
+					acarreoX = 0;
+				}
+				else {
+					cont1->push(cont);
+				}
+			}
+			if (objeto._v[i] != NULL) {
+				res2 = objeto._v[i];
+			}
+			else {
+				res2 = 0;
+			}
+
+			while (res2 != 0) {
+				cont = obtenerPrimerDigito(res2);
+				res2 = removerPrimerDigito(res2);
+				cont2->push(cont);
+			}
+			while(!cont1->is_empty()){
+				int num1 = 0;
+				int num2 = 0;
+				int resresta = 0;
+				num1 = cont1->pop();
+				num2 = cont2->pop();
+				if (num1 == NULL) {
+					num1 = 0;
+				}
+				if (num2 == NULL) {
+					num2 = 0;
+				}
+				if (num1 < num2) {
+					if (cont1->count() == 0) {
+						num1 += 10;
+						acarreoX = 1;
+					}
+					else {
+						num1 += 10;
+						cont1->_v[cont1->count() - 1] -= 1;
+					}
+				}
+				resresta = num1 - num2;
+				resultado += convertirIntastring(resresta);
+			}
+			int cadena = convertirInt(resultado);
+			int z;
+
+			while (cadena != 0) {
+				z = cadena % 10;
+				cadena = cadena / 10;
+				//		z = obtenerPrimerDigito(cadena);
+				concatena += convertirIntastring(z);
+				//cadena = removerPrimerDigito(cadena);
+			}
+			//nuevo->_v[p]=convertirInt(concatena);
+			nuevo->push(convertirInt(concatena));
 		}
-	}
+
+	//}
 	return nuevo;
 }
 

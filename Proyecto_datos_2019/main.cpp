@@ -27,7 +27,18 @@ int main() {
 	_myFibonacci = fib(n);
 	std::cout << _myFibonacci->getDetalles()<< std::endl;
 	cout << "\n--------Calculando el factorial---------" << endl;
-
+	Stack<int>* s0 = new Stack<int>();
+	s0->push(4567);
+	s0->push(4321);
+	Stack<int>* s1 = new Stack<int>();
+	s1->push(345);
+	s1->push(7563);
+	cout << "**********Comprobando resta de stacks*******" << endl;
+	cout << s0->toString()<<endl;
+	cout << s1->toString()<<endl;
+	Stack<int>* s2 = new Stack<int>();
+	s2 = *s0 - *s1;
+	cout << "Restando ->" << s2->toString() << endl;
 	return 0;
 }
 
