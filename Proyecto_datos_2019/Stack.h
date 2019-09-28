@@ -230,12 +230,18 @@ inline Stack<T>* Stack<T>::operator-(const Stack<T>& objeto)
 				res2 = removerPrimerDigito(res2);
 				cont2->push(cont);
 			}
-			while(!cont1->is_empty()){
+			while(!cont1->is_empty()||!cont2->is_empty()){
 				int num1 = 0;
 				int num2 = 0;
 				int resresta = 0;
-				num1 = cont1->pop();
-				num2 = cont2->pop();
+				if (!cont1->is_empty()) {
+					num1 = cont1->pop();
+				}
+				else { num1 = 0; }
+				if (!cont2->is_empty()) {
+					num2 = cont2->pop();
+				}
+				else { num2 = 0; }
 				if (num1 == NULL) {
 					num1 = 0;
 				}

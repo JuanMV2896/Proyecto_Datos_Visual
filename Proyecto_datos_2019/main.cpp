@@ -29,7 +29,7 @@ int main() {
 	cout << "\n--------Calculando el factorial---------" << endl;
 	Stack<int>* s0 = new Stack<int>();
 	s0->push(4567);
-	s0->push(4321);
+	s0->push(421);
 	Stack<int>* s1 = new Stack<int>();
 	s1->push(345);
 	s1->push(7563);
