@@ -195,7 +195,6 @@ inline Stack<T>* Stack<T>::operator-(const Stack<T>& objeto)
 	int acarreoX = 0;
 	T res1;
 	T res2;
-	//for (int p = this->count() - 1; p >= 0; p--) {
 	nuevo = new Stack<T>(_n);
 		for (int i = this->count() - 1; i >= 0; i--) {
 			string resultado = "";
@@ -267,16 +266,15 @@ inline Stack<T>* Stack<T>::operator-(const Stack<T>& objeto)
 			while (cadena != 0) {
 				z = cadena % 10;
 				cadena = cadena / 10;
-				//		z = obtenerPrimerDigito(cadena);
 				concatena += convertirIntastring(z);
-				//cadena = removerPrimerDigito(cadena);
 			}
-			//nuevo->_v[p]=convertirInt(concatena);
 			nuevo->push(convertirInt(concatena));
 		}
-
-	//}
-	return nuevo;
+		Stack<T>* tmp = new Stack<T>(nuevo->_k);
+		while (!nuevo->is_empty()) {
+			tmp->push(nuevo->pop());
+		}
+	return tmp;
 }
 
 template<class T>

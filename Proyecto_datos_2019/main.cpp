@@ -29,10 +29,10 @@ int main() {
 	cout << "\n--------Calculando el factorial---------" << endl;
 	Stack<int>* s0 = new Stack<int>();
 	s0->push(4567);
-	s0->push(421);
+	s0->push(4215);
 	Stack<int>* s1 = new Stack<int>();
-	s1->push(345);
-	s1->push(7563);
+	s1->push(3457);
+	s1->push(7565);
 	cout << "**********Comprobando resta de stacks*******" << endl;
 	cout << s0->toString()<<endl;
 	cout << s1->toString()<<endl;
