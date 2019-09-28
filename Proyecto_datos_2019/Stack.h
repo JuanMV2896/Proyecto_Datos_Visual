@@ -181,9 +181,9 @@ inline Stack<T>* Stack<T>::operator+(const Stack<T>& objeto)
 template<class T>
 inline Stack<T>* Stack<T>::operator*(const Stack<T>& objeto)
 {
-	if (this->count() > objeto.count()) {
-
-	}
+	/*if (this->count() > objeto.count()) {
+		AUN NO ESTA IMPLEMENTADO... AHORA MAS TARDE LO TERMINO...
+	}*/
 }
 
 template<class T>
