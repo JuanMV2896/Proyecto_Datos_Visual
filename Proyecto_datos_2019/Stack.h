@@ -280,20 +280,18 @@ inline Stack<T>* Stack<T>::operator-(const Stack<T>& objeto)
 template<class T>
 inline void Stack<T>::operator-=(const Stack<T>& objeto)
 {
-	T acarreo = 0;
-	bool _siacarrea = false;
-	if (count() == objeto.count()) {
-		acarreo = 0;
-		_siacarrea = false;
-		for (int i = count() - 1; i >= 0; i--) {
-			if (_v[i] < objeto._v[i] && _v[i - 1]>0) {
-				_v[i - 1] -= 1;
-				acarreo = 10;
-				_v[i] += acarreo;
-				_siacarrea = true;
-			}
-			_v[i] -= objeto._v[i];
-		}
+	Stack<T>* cont = new Stack<T>(this->count());
+	Stack<T>* cont1 = new Stack<T>(this->count());
+	cont = *this - objeto;
+	while (!this->is_empty())
+	{
+		this->pop();
+	}
+	while (!cont->is_empty()) {
+		cont1->push(cont->pop());
+	}
+	while (!cont1->is_empty()) {
+		this->push(cont1->pop());
 	}
 }
 

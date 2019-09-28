@@ -39,6 +39,8 @@ int main() {
 	Stack<int>* s2 = new Stack<int>();
 	s2 = *s0 - *s1;
 	cout << "Restando ->" << s2->toString() << endl;
+	*s0 -= *s1;
+	cout << "Restando -=" << s0->toString() << endl;
 	return 0;
 }
 
