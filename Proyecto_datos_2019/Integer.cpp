@@ -67,6 +67,19 @@ Integer* Integer::operator+(const Integer& x)
 	_nuevo = new Integer(*_lista + *x._lista);
 	return _nuevo;
 }
+void Integer::operator-=(const Integer& x) {
+	Lista<Stack<int>>* tmp = nullptr;
+	tmp = *_lista - *x._lista;
+	Integer* _nuevo = new Integer(tmp);
+	*this = *_nuevo;
+}
+
+void Integer::operator+=(const Integer& x) {
+	Lista<Stack<int>>* tmp = nullptr;
+	tmp = *_lista + *x._lista;
+	Integer* _nuevo = new Integer(tmp);
+	*this = *_nuevo;
+}
 
 Integer& Integer::operator*(const Integer& objeto)
 {
@@ -80,6 +93,12 @@ string Integer::toString() const
 	s << "El objeto declarado tiene: " << endl;
 	s << _lista->numElementos() << " elementos en la lista.\n";
 	return s.str();
+}
+
+Integer* Integer::operator-(const Integer& x) {
+	Integer* _nuevo = nullptr;
+	_nuevo = new Integer(*_lista - *x._lista);
+	return _nuevo;
 }
 
 int Integer::calcularNumeroOptimoDeRanuras(int size)

@@ -31,9 +31,9 @@ public:
 	//    virtual Integer* multiplicacion(Integer*);	
 
 	//    virtual Integer& operator/(const Integer&);    
-	//  virtual Integer* operator-(const Integer&);
-	//    virtual Integer& operator+=(const Integer&);
-	//    virtual Integer& operator-=(const Integer&);
+	  virtual Integer* operator-(const Integer&);
+	    virtual void operator+=(const Integer&);
+	    virtual void operator-=(const Integer&);
 	//    virtual Integer& operator*=(const Integer&);
 	//    virtual Integer& operator/=(const Integer&);
 	//    virtual Integer& operator!=(const Integer&);
